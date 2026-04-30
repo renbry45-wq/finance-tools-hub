@@ -250,3 +250,4 @@ Either way works. The committed-`dist/` approach is simpler and avoids surprise 
 - **Layouts cascade:** A page → calculator/trust layout → base layout → final HTML. Each layer renders into the next layer's `{{ content }}`.
 - **Tailwind:** loaded via CDN (matches the legacy site). If you want to compile Tailwind locally for production performance, that's a future enhancement.
 - **No build pipeline beyond Eleventy.** No bundler, no PostCSS, no transform. The build is `eleventy` and that's it.
+
