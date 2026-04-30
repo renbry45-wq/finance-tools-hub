@@ -24,6 +24,12 @@ export default function (eleventyConfig) {
     return dt.toISOString().slice(0, 10);
   });
 
+  // Filter: long human date for article hero ("May 5, 2026")
+  eleventyConfig.addFilter("longDate", (d) => {
+    const dt = d ? new Date(d) : new Date();
+    return dt.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+  });
+
   return {
     dir: {
       input: "src",

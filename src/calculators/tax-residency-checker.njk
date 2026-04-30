@@ -87,6 +87,12 @@ bodyHtml: |
   </section>
 
   <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-emerald-100 bg-emerald-50 p-6">
+      <p class="text-sm text-slate-700"><strong class="text-slate-900">Related reading:</strong> <a class="text-emerald-700 font-medium" href="/articles/183-day-rule-remote-workers.html">What the 183-day rule means for remote workers</a></p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 py-4">
     <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
       <h2 class="text-2xl font-bold">Sources and limitations</h2>
       <p class="mt-4 text-slate-600">This tool is an educational residency-risk screen. It is not tax advice, legal advice, or a treaty analysis. Country-specific rules vary widely.</p>
@@ -105,12 +111,12 @@ bodyHtml: |
 
 
 calcScript: |
-  // Default inputs (days=90, tax-home=yes, perm-home=no) land on: lower-watch (emerald). Tier mapping: Low → lower-watch, Moderate → review-recommended, High → higher-residency-risk. The "Read more on the 183-day rule article" link points to /methodology.html as a Week-2 fallback; it switches to /articles/183-day-rule-remote-workers.html in Week 3.
+  // Default inputs (days=90, tax-home=yes, perm-home=no) land on: lower-watch (emerald). Tier mapping: Low → lower-watch, Moderate → review-recommended, High → higher-residency-risk. The "Read more on the 183-day rule article" link for the Moderate and High states points to /articles/183-day-rule-remote-workers.html (Week 3 article).
   function calculate(){ const days=parseFloat(document.getElementById('days').value)||0, taxHome=document.getElementById('tax-home').value, home=document.getElementById('perm-home').value; let risk='Low'; if(days>=183) risk='High'; else if(days>=120) risk='Moderate'; let msg=risk==='High'?'You may become tax resident after 183 days or similar local tests.':risk==='Moderate'?'You are approaching a common tax residency threshold.':'Your days count is below the most common threshold, but other local rules may still apply.'; if(taxHome==='no'&&home==='yes') msg += ' Losing your tax home while keeping a permanent home abroad increases risk.'; const result={'Days in Country':days,'Maintains Tax Home':taxHome,'Permanent Home Abroad':home,'Risk Level':risk,'Summary':msg};
    document.getElementById('result').innerHTML=`<div class="grid md:grid-cols-2 gap-4"><div class="result-card bg-emerald-50"><p class="text-sm text-emerald-700">Risk level</p><p class="text-4xl font-bold text-emerald-700">${risk}</p></div><div class="result-card"><p class="text-sm text-slate-500">Summary</p><p class="text-base mt-2">${msg}</p></div></div><div class="mt-4 text-slate-600">Related tools: <a class="text-emerald-700" href="gig-tax-optimizer.html">Gig Tax Optimizer</a> and <a class="text-emerald-700" href="nomad-health-insurance-estimator.html">Nomad Health Insurance Estimator</a>.</div><div class="flex flex-wrap gap-3 mt-6"><button class="px-5 py-3 rounded-2xl bg-slate-900 text-white" onclick='downloadResultPDF("Tax Residency Checker", ${JSON.stringify(result)})'>Download PDF</button><button class="px-5 py-3 rounded-2xl bg-emerald-600 text-white" onclick='emailResult("Tax Residency Checker", ${JSON.stringify(result)})'>Send by Email</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("X","Tax Residency Checker")'>X</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("Facebook","Tax Residency Checker")'>Facebook</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("LinkedIn","Tax Residency Checker")'>LinkedIn</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("WhatsApp","Tax Residency Checker")'>WhatsApp</button></div>`;
    if (risk === 'Low') setDecisionState('lower-watch', 'emerald', 'Lower watch', "Your answers suggest a lower watch on accidentally triggering tax residency in another country. This is general guidance — official rules vary by country and treaty.", "If you're planning a move, model the cost with the Digital Nomad Calculator.", '/digital-nomad-calculator.html');
-   else if (risk === 'Moderate') setDecisionState('review-recommended', 'amber', 'Review recommended', "Your answers suggest some tax residency risk worth reviewing. The 183-day rule is one of several tests — consult a cross-border tax professional.", "Read more on the 183-day rule article.", '/methodology.html');
-   else setDecisionState('higher-residency-risk', 'red', 'Higher residency risk', "Your answers suggest a higher risk of triggering tax residency in another country. Specific rules vary — this is not a substitute for professional cross-border tax advice.", "Read more on the 183-day rule article.", '/methodology.html');
+   else if (risk === 'Moderate') setDecisionState('review-recommended', 'amber', 'Review recommended', "Your answers suggest some tax residency risk worth reviewing. The 183-day rule is one of several tests — consult a cross-border tax professional.", "Read more on the 183-day rule article.", '/articles/183-day-rule-remote-workers.html');
+   else setDecisionState('higher-residency-risk', 'red', 'Higher residency risk', "Your answers suggest a higher risk of triggering tax residency in another country. Specific rules vary — this is not a substitute for professional cross-border tax advice.", "Read more on the 183-day rule article.", '/articles/183-day-rule-remote-workers.html');
    }
   function setDecisionState(stateKey, color, label, body, nextText, nextHref) {
     const wrap = document.getElementById('decision-state');

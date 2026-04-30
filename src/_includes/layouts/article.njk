@@ -1,0 +1,71 @@
+---
+layout: layouts/base.njk
+---
+{# Article intermediate layout. Page frontmatter provides:
+     slug          : matches an entry in src/_data/articles.json
+     body          : raw HTML article body
+     lead          : optional one-line TL;DR (rendered as a left-bordered callout)
+   Hero metadata (publishedDate, readingMinutes, h1, workflow, related) is
+   sourced from articles.json by slug; primary calculator metadata from
+   calculators.json by primaryCalculatorKey.
+#}
+{%- for art in articles %}{%- if art.slug == slug %}
+
+{# --------- Article hero --------- #}
+<section class="bg-gradient-to-br from-white to-emerald-50 border-b border-slate-200">
+  <div class="max-w-3xl mx-auto px-4 py-14">
+    <a href="/articles/" class="text-sm font-medium text-emerald-700">← All articles</a>
+    <p class="mt-4 text-xs uppercase tracking-wide text-emerald-700 font-semibold">Article · {%- for wf in workflows %}{%- if wf.key == art.workflowKey %}{{ wf.title }}{%- endif %}{%- endfor %}</p>
+    <h1 class="mt-3 text-4xl font-black leading-tight">{{ art.h1 }}</h1>
+    <p class="mt-4 text-slate-600">By Renato Bryant · Published {{ art.publishedDate | longDate }} · {{ art.readingMinutes }} min read</p>
+  </div>
+</section>
+
+{# --------- Lead callout (optional) --------- #}
+{% if lead %}
+<section class="max-w-3xl mx-auto px-4 pt-8">
+  <p class="border-l-4 border-emerald-100 pl-4 text-slate-700">{{ lead | safe }}</p>
+</section>
+{% endif %}
+
+{# --------- Article body --------- #}
+<article class="prose max-w-3xl mx-auto px-4 py-8">
+  {{ body | safe }}
+</article>
+
+{# --------- Primary CTA --------- #}
+{%- for c in calculators %}{%- if c.key == art.primaryCalculatorKey %}
+<section class="max-w-3xl mx-auto px-4 py-6">
+  <div class="rounded-3xl bg-emerald-50 border border-emerald-100 p-8 card-shadow">
+    <h2 class="text-2xl font-bold">Ready to run your numbers?</h2>
+    <p class="mt-3 text-slate-700">{{ c.blurb }}</p>
+    <a href="/{{ c.slug }}.html" class="inline-flex mt-4 px-5 py-3 rounded-full bg-emerald-600 text-white font-semibold hover:bg-emerald-700">Open the {{ c.label }} →</a>
+  </div>
+</section>
+{%- endif %}{%- endfor %}
+
+{# --------- Related calculators (2-3 cards from relatedCalculatorKeys) --------- #}
+<section class="max-w-3xl mx-auto px-4 py-6">
+  <div class="rounded-3xl bg-white border border-slate-200 p-8 card-shadow">
+    <h2 class="text-2xl font-bold">Related calculators</h2>
+    <p class="mt-3 text-slate-600">Use related tools to turn one estimate into a complete financial decision.</p>
+    <div class="mt-6 grid md:grid-cols-3 gap-4">
+      {%- for key in art.relatedCalculatorKeys %}
+        {%- for c in calculators %}
+          {%- if c.key == key %}
+      <a href="/{{ c.slug }}.html" class="rounded-2xl border border-slate-200 bg-white p-5 hover:border-emerald-300 hover:text-emerald-700">{{ c.label }}</a>
+          {%- endif %}
+        {%- endfor %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{# --------- Author + trust strip --------- #}
+<section class="max-w-3xl mx-auto px-4 py-6">
+  <div class="rounded-3xl border border-emerald-100 bg-emerald-50 p-6">
+    <p class="text-sm text-slate-700">Written and maintained by Renato Bryant. Read the <a class="text-emerald-700 font-medium" href="/methodology.html">methodology</a> and the <a class="text-emerald-700 font-medium" href="/about.html">about</a> page for how content is reviewed.</p>
+  </div>
+</section>
+
+{%- endif %}{%- endfor %}

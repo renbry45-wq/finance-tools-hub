@@ -36,4 +36,18 @@ eleventyExcludeFromCollections: true
     <priority>0.8</priority>
   </url>
 {%- endfor %}
+  <url>
+    <loc>{{ site.baseUrl }}/articles/</loc>
+    <lastmod>{{ "" | isoDate }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+{%- for art in articles %}
+  <url>
+    <loc>{{ site.baseUrl }}/articles/{{ art.slug }}.html</loc>
+    <lastmod>{{ art.lastUpdated | isoDate }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+{%- endfor %}
 </urlset>

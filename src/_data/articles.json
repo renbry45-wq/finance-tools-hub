@@ -1,0 +1,67 @@
+[
+  {
+    "slug": "compare-job-offers-take-home-pay",
+    "title": "How to Compare Two Job Offers Using Take-Home Pay",
+    "description": "Headline salary doesn't tell the full story. Use take-home pay, taxes, and benefits to compare two job offers fairly in 2026.",
+    "h1": "How to compare two job offers using take-home pay",
+    "publishedDate": "2026-05-05",
+    "lastUpdated": "2026-05-05",
+    "readingMinutes": 7,
+    "workflowKey": "income-reality",
+    "primaryCalculatorKey": "take-home-pay",
+    "relatedCalculatorKeys": ["take-home-pay", "tax-bracket", "retirement-savings"],
+    "tags": ["salary", "job-offers", "take-home-pay"]
+  },
+  {
+    "slug": "freelancer-tax-reserve-2026",
+    "title": "How Much Freelancers Should Reserve for Taxes in 2026",
+    "description": "A practical guide to setting aside the right share of freelance income for federal, state, and self-employment tax in 2026.",
+    "h1": "How much freelancers should reserve for taxes in 2026",
+    "publishedDate": "2026-05-08",
+    "lastUpdated": "2026-05-08",
+    "readingMinutes": 8,
+    "workflowKey": "freelance-gig",
+    "primaryCalculatorKey": "gig-tax-optimizer",
+    "relatedCalculatorKeys": ["gig-tax-optimizer", "tax-bracket", "take-home-pay"],
+    "tags": ["freelance", "self-employment-tax", "quarterly-taxes"]
+  },
+  {
+    "slug": "is-moving-abroad-cheaper",
+    "title": "Is Moving Abroad Actually Cheaper After Insurance and Taxes?",
+    "description": "The headline cost-of-living number isn't the full picture. Run the real math on rent, insurance, taxes, and visa costs before relocating.",
+    "h1": "Is moving abroad actually cheaper after insurance and taxes?",
+    "publishedDate": "2026-05-12",
+    "lastUpdated": "2026-05-12",
+    "readingMinutes": 9,
+    "workflowKey": "move-abroad",
+    "primaryCalculatorKey": "digital-nomad",
+    "relatedCalculatorKeys": ["digital-nomad", "cost-of-living", "nomad-insurance"],
+    "tags": ["digital-nomad", "relocation", "cost-of-living"]
+  },
+  {
+    "slug": "relocation-break-even-guide",
+    "title": "How to Know Whether a Relocation Will Really Break Even",
+    "description": "A simple framework for estimating relocation payback time, including one-time costs, monthly savings, and what often gets missed.",
+    "h1": "How to know whether a relocation will really break even",
+    "publishedDate": "2026-05-15",
+    "lastUpdated": "2026-05-15",
+    "readingMinutes": 7,
+    "workflowKey": "move-abroad",
+    "primaryCalculatorKey": "break-even",
+    "relatedCalculatorKeys": ["break-even", "cost-of-living", "digital-nomad"],
+    "tags": ["relocation", "break-even", "savings"]
+  },
+  {
+    "slug": "183-day-rule-remote-workers",
+    "title": "What the 183-Day Rule Means for Remote Workers",
+    "description": "The 183-day rule is the most-cited test for tax residency, but it's not the only one. Here's what remote workers should actually watch for.",
+    "h1": "What the 183-day rule means for remote workers",
+    "publishedDate": "2026-05-19",
+    "lastUpdated": "2026-05-19",
+    "readingMinutes": 8,
+    "workflowKey": "move-abroad",
+    "primaryCalculatorKey": "tax-residency",
+    "relatedCalculatorKeys": ["tax-residency", "digital-nomad", "cost-of-living"],
+    "tags": ["tax-residency", "183-day-rule", "remote-work"]
+  }
+]
