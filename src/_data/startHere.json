@@ -1,0 +1,7 @@
+[
+  { "label": "Compare two job offers",        "url": "/take-home-pay-calculator.html",   "icon": "briefcase" },
+  { "label": "Plan freelance taxes",          "url": "/gig-tax-optimizer.html",          "icon": "calculator" },
+  { "label": "Evaluate a move abroad",        "url": "/digital-nomad-calculator.html",   "icon": "globe" },
+  { "label": "Pay off debt faster",           "url": "/credit-card-payoff-calculator.html", "icon": "card" },
+  { "label": "Check your retirement track",   "url": "/retirement-savings-calculator.html", "icon": "trending-up" }
+]

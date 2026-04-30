@@ -1,0 +1,26 @@
+[
+  {
+    "key": "income-reality",
+    "title": "Income Reality",
+    "tagline": "What you actually take home, what the IRS takes, and whether you're saving enough.",
+    "audience": "Employees, salaried workers, anyone comparing job offers or planning a paycheck-driven budget.",
+    "calculatorKeys": ["take-home-pay", "tax-bracket", "retirement-savings"],
+    "primaryCta": { "label": "Start with Take-Home Pay", "url": "/take-home-pay-calculator.html" }
+  },
+  {
+    "key": "freelance-gig",
+    "title": "Freelance & Gig Money",
+    "tagline": "Estimate your real income after self-employment tax, and reserve enough for quarterly payments.",
+    "audience": "Freelancers, contractors, rideshare and delivery drivers, creators, and side-income earners.",
+    "calculatorKeys": ["gig-tax-optimizer", "tax-bracket", "take-home-pay", "retirement-savings"],
+    "primaryCta": { "label": "Start with Gig Tax Optimizer", "url": "/gig-tax-optimizer.html" }
+  },
+  {
+    "key": "move-abroad",
+    "title": "Move Abroad Economics",
+    "tagline": "Run the numbers on relocation: monthly costs, break-even, tax residency, and insurance.",
+    "audience": "Remote workers, digital nomads, and anyone considering an international move.",
+    "calculatorKeys": ["digital-nomad", "cost-of-living", "break-even", "tax-residency", "nomad-insurance"],
+    "primaryCta": { "label": "Start with Digital Nomad Calculator", "url": "/digital-nomad-calculator.html" }
+  }
+]
