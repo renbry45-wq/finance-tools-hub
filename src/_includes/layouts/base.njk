@@ -20,6 +20,18 @@
   <link rel="stylesheet" href="/assets/css/site.css">
 
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    // Safelist for Tailwind classes added at runtime by setDecisionState()
+    // (the Play CDN's JIT scan misses class names that only appear inside JS strings).
+    tailwind.config = {
+      safelist: [
+        'bg-emerald-50','border-emerald-200',
+        'bg-slate-50','border-slate-200',
+        'bg-amber-50','border-amber-200',
+        'bg-red-50','border-red-200'
+      ]
+    }
+  </script>
   {% if needsPdf %}<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>{% endif %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaId }}"></script>
   <script>
