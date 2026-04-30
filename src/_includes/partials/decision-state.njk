@@ -1,0 +1,35 @@
+{# Canonical decision-state HTML block — reference partial.
+
+   Note: this partial is NOT rendered via {% include %} from any calculator
+   page. The calculator layout (calculator.njk) renders calcBody as a raw
+   string via {{ calcBody | safe }}, which does not process Nunjucks tags
+   inside the frontmatter string. This file is the single source of truth
+   for the markup; each of the 5 Week-2 calculators inlines the same HTML
+   into its calcBody. If you change anything here, mirror the change in:
+
+     - src/calculators/take-home-pay-calculator.njk
+     - src/calculators/gig-tax-optimizer.njk
+     - src/calculators/digital-nomad-calculator.njk
+     - src/calculators/break-even-savings-calculator.njk
+     - src/calculators/tax-residency-checker.njk
+
+   Color treatment is applied at runtime by setDecisionState() in each
+   calcScript, which toggles a class on [data-decision-state]:
+     emerald → bg-emerald-50 border-emerald-200
+     slate   → bg-slate-50 border-slate-200
+     amber   → bg-amber-50 border-amber-200
+     red     → bg-red-50 border-red-200
+#}
+<div id="decision-state" class="mt-6" hidden>
+  <div class="rounded-2xl border p-6" data-decision-state>
+    <p class="text-xs uppercase tracking-wide font-semibold" data-state-eyebrow></p>
+    <h3 class="mt-2 text-xl font-bold" data-state-label></h3>
+    <p class="mt-3 text-slate-700" data-state-body></p>
+    <div class="mt-4 rounded-xl bg-white border border-slate-200 p-4">
+      <p class="text-sm font-semibold text-slate-900">Recommended next step</p>
+      <p class="mt-1 text-sm text-slate-700" data-next-step-text></p>
+      <a class="inline-block mt-2 text-emerald-700 font-medium" data-next-step-link>Open the next calculator →</a>
+    </div>
+    <p class="mt-4 text-xs text-slate-500">This is an educational estimate. Real outcomes depend on your full situation. Talk to a qualified professional before making major decisions.</p>
+  </div>
+</div>
