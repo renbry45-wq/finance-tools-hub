@@ -1,0 +1,36 @@
+{
+  "primary": [
+    { "label": "Take-Home Pay",            "url": "/take-home-pay-calculator.html",          "key": "take-home-pay" },
+    { "label": "Mortgage Overpayment",     "url": "/mortgage-overpayment-calculator.html",   "key": "mortgage-overpayment" },
+    { "label": "Credit Card Payoff",       "url": "/credit-card-payoff-calculator.html",     "key": "credit-card-payoff" },
+    { "label": "Tax Bracket",              "url": "/tax-bracket-calculator.html",            "key": "tax-bracket" },
+    { "label": "Retirement Savings",       "url": "/retirement-savings-calculator.html",     "key": "retirement-savings" },
+    { "label": "Gig Tax Optimizer",        "url": "/gig-tax-optimizer.html",                 "key": "gig-tax-optimizer" },
+    { "label": "Digital Nomad Calculator", "url": "/digital-nomad-calculator.html",          "key": "digital-nomad" },
+    { "label": "Cost of Living Comparison","url": "/cost-of-living-comparison.html",         "key": "cost-of-living" },
+    { "label": "Break-Even Savings",       "url": "/break-even-savings-calculator.html",     "key": "break-even" },
+    { "label": "Tax Residency Checker",    "url": "/tax-residency-checker.html",             "key": "tax-residency" },
+    { "label": "Nomad Insurance Estimator","url": "/nomad-health-insurance-estimator.html",  "key": "nomad-insurance" },
+    { "label": "About",                    "url": "/about.html",                             "key": "about" },
+    { "label": "Methodology",              "url": "/methodology.html",                       "key": "methodology" },
+    { "label": "Author",                   "url": "/author-renato-bryant.html",              "key": "author" }
+  ],
+  "footerPopular": [
+    { "label": "Take-Home Pay",        "url": "/take-home-pay-calculator.html" },
+    { "label": "Mortgage Overpayment", "url": "/mortgage-overpayment-calculator.html" },
+    { "label": "Credit Card Payoff",   "url": "/credit-card-payoff-calculator.html" },
+    { "label": "Tax Bracket",          "url": "/tax-bracket-calculator.html" },
+    { "label": "Retirement Savings",   "url": "/retirement-savings-calculator.html" },
+    { "label": "Gig Tax Optimizer",    "url": "/gig-tax-optimizer.html" }
+  ],
+  "footerMore": [
+    { "label": "Digital Nomad Calculator",  "url": "/digital-nomad-calculator.html" },
+    { "label": "Cost of Living Comparison", "url": "/cost-of-living-comparison.html" },
+    { "label": "Break-Even Savings",        "url": "/break-even-savings-calculator.html" },
+    { "label": "Tax Residency Checker",     "url": "/tax-residency-checker.html" },
+    { "label": "Nomad Insurance Estimator", "url": "/nomad-health-insurance-estimator.html" },
+    { "label": "About",                     "url": "/about.html" },
+    { "label": "Methodology",               "url": "/methodology.html" },
+    { "label": "Author",                    "url": "/author-renato-bryant.html" }
+  ]
+}

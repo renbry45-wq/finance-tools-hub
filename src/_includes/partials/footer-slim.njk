@@ -1,0 +1,16 @@
+{# Slim two-column footer. Used on trust pages (about, methodology, author).
+   Matches the current slim trust-page footer design. #}
+<footer class="mt-16 border-t border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-600 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div>
+      <p class="font-semibold text-slate-800">{{ site.name }}</p>
+      <p>{{ site.footerTagline }}</p>
+    </div>
+    <div class="flex flex-wrap gap-4">
+      <a href="/about.html" class="hover:text-emerald-700">About</a>
+      <a href="/methodology.html" class="hover:text-emerald-700">Methodology</a>
+      <a href="/author-renato-bryant.html" class="hover:text-emerald-700">Author</a>
+      <a href="/" class="hover:text-emerald-700">Home</a>
+    </div>
+  </div>
+</footer>

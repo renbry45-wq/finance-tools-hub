@@ -1,0 +1,28 @@
+{# Rich three-column footer. Used on the homepage and all calculator pages. #}
+<footer class="mt-20 border-t border-slate-200 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-600">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="font-semibold text-slate-900 mb-3">{{ site.fullName }}</h3>
+        <p>{{ site.tagline }}</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-slate-900 mb-3">Popular Calculators</h3>
+        <div class="space-y-2">
+          {%- for item in nav.footerPopular %}
+          <a class="block hover:text-emerald-700" href="{{ item.url }}">{{ item.label }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+      <div>
+        <h3 class="font-semibold text-slate-900 mb-3">More Tools</h3>
+        <div class="space-y-2">
+          {%- for item in nav.footerMore %}
+          <a class="block hover:text-emerald-700" href="{{ item.url }}">{{ item.label }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+    <p class="mt-8 text-xs">{{ site.disclaimer }}</p>
+  </div>
+</footer>

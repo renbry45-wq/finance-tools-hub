@@ -1,0 +1,111 @@
+---
+layout: layouts/calculator.njk
+title: "Tax Residency Checker 2026 | Remote Work Tax Risk Tool"
+description: "Use this 2026 tax residency checker to review possible remote work tax residency risk based on days spent abroad, tax home status, and permanent home factors."
+canonical: "https://financetoolshub.net/tax-residency-checker.html"
+permalink: /tax-residency-checker.html
+activeKey: "tax-residency"
+needsPdf: true
+relatedKeys: ["digital-nomad", "cost-of-living", "tax-bracket"]
+hero:
+  h1: "Tax Residency Checker 2026"
+  leadIn: "The Finance Tools Hub Tax Residency Checker is a free 2026 remote work tax risk tool that helps digital nomads and remote workers review common residency triggers such as the 183-day rule, tax home issues, and permanent home factors before or during a move abroad."
+  leadOut: "This tool does not make legal conclusions. It is designed to highlight situations that may justify deeper review with a qualified tax professional."
+  badges: ["Remote work tax awareness", "183-day risk check", "Educational screening tool"]
+authorBoxText: "Finance Tools Hub calculators are maintained by Renato Bryant, whose background includes management, budgeting, compliance, and operational oversight. For higher-trust topics, the site is being expanded with clearer methodology, assumptions, and explanatory content so users can judge estimates more carefully."
+schemaBlocks:
+  - '{
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Tax Residency Checker",
+    "url":"https://financetoolshub.net/tax-residency-checker.html",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"All",
+    "description":"A 2026 remote work tax residency checker that helps digital nomads and remote workers review common residency risk triggers before or during a move abroad.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "author":{"@type":"Person","name":"Renato Bryant","url":"https://financetoolshub.net/author-renato-bryant.html"}
+  }'
+calcBody: |
+  <section class="max-w-5xl mx-auto px-4 py-12"><div class="rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 md:p-10 card-shadow"><div class="max-w-2xl space-y-5"><div><label class="block text-sm font-medium mb-2">Days Spent in Destination Country</label><input id="days" type="number" value="120" class="w-full rounded-2xl border-slate-300 p-4"></div><div><label class="block text-sm font-medium mb-2">Do you maintain a tax home in your home country?</label><select id="tax-home" class="w-full rounded-2xl border-slate-300 p-4"><option value="yes">Yes</option><option value="no">No</option></select></div><div><label class="block text-sm font-medium mb-2">Do you have a permanent home available abroad?</label><select id="perm-home" class="w-full rounded-2xl border-slate-300 p-4"><option value="no">No</option><option value="yes">Yes</option></select></div><button onclick="calculate()" class="w-full rounded-2xl bg-emerald-600 py-4 font-semibold text-white hover:bg-emerald-700">Check Residency</button></div><div id="result" class="mt-8"></div></div></section>
+bodyHtml: |
+  <section class="max-w-5xl mx-auto px-4 py-12"><div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow"><h2 class="text-2xl font-bold">Why this tool matters in 2026</h2><p class="mt-4 text-slate-600">Check common remote work tax residency risk triggers such as the 183-day rule, losing your tax home, and maintaining a permanent home abroad. This tool helps remote workers and digital nomads identify situations that may justify professional tax advice before or during a move. Good planning works best when you connect this page with the rest of your workflow on Finance Tools Hub.</p></div></section>
+    
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">What this tool is designed to check</h2>
+      <p class="mt-4 text-slate-600">This page is designed to help remote workers and digital nomads identify whether their facts may create tax residency risk in another country. It focuses on common screening questions rather than detailed legal analysis, so users can decide whether a formal tax review is needed.</p>
+      <p class="mt-4 text-slate-600">A result from this page should be treated as a warning signal, not a formal determination. Tax residency can depend on country-specific rules, treaty provisions, center-of-vital-interests tests, and other facts that go far beyond one calculator.</p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">Why the 183-day rule matters</h2>
+      <p class="mt-4 text-slate-600">The 183-day rule is one of the most recognized starting points in cross-border tax discussions, which is why it appears prominently in this checker. But it is only one signal. Some countries use additional tests that look at your tax home, permanent home, family connections, business presence, or center of economic interests.</p>
+      <p class="mt-4 text-slate-600">That means a person may face tax residency risk even below 183 days, or avoid residency in some cases above that threshold depending on the facts and applicable treaty rules.</p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">How to read the result</h2>
+      <div class="mt-5 grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">Low</h3>
+          <p class="mt-2 text-slate-600">Low means the simplified facts entered here do not immediately suggest the most common residency trigger, but it does not rule out country-specific issues.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">Moderate</h3>
+          <p class="mt-2 text-slate-600">Moderate means you may be approaching a common threshold or your facts could justify closer review before you continue working abroad.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">High</h3>
+          <p class="mt-2 text-slate-600">High means your situation may create a meaningful tax residency risk and should usually be reviewed with a qualified professional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">Common scenarios</h2>
+      <div class="mt-5 grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold">The long-stay nomad</h3>
+          <p class="mt-2 text-slate-600">I have been working remotely in one country for more than four months. At what point could my days abroad create a tax issue?</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold">The freelancer losing tax home</h3>
+          <p class="mt-2 text-slate-600">What happens if I no longer maintain a tax home in my original country while also staying abroad for long periods?</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold">The remote worker with a permanent base</h3>
+          <p class="mt-2 text-slate-600">Could I face higher residency risk if I keep an apartment or long-term home available in the country where I work remotely?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">Sources and limitations</h2>
+      <p class="mt-4 text-slate-600">This tool is an educational residency-risk screen. It is not tax advice, legal advice, or a treaty analysis. Country-specific rules vary widely.</p>
+      <ul class="mt-4 list-disc pl-6 text-slate-600 space-y-2">
+        <li>The calculator uses broad, common triggers such as the 183-day rule and tax-home concepts.</li>
+        <li>Permanent home, center of vital interests, treaty tie-breakers, and local filing obligations can materially change the outcome.</li>
+        <li>Use the <a class="text-emerald-700 font-medium" href="/methodology.html">Methodology page</a> and consult a tax professional for real cross-border decisions.</li>
+      </ul>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/methodology.html" class="px-4 py-3 rounded-full bg-slate-900 text-white font-medium">Read methodology</a>
+        <a href="/about.html" class="px-4 py-3 rounded-full border border-slate-300 text-slate-800 font-medium">About the site</a>
+        <a href="/author-renato-bryant.html" class="px-4 py-3 rounded-full border border-slate-300 text-slate-800 font-medium">Author profile</a>
+      </div>
+    </div>
+  </section>
+
+
+calcScript: |
+  function calculate(){ const days=parseFloat(document.getElementById('days').value)||0, taxHome=document.getElementById('tax-home').value, home=document.getElementById('perm-home').value; let risk='Low'; if(days>=183) risk='High'; else if(days>=120) risk='Moderate'; let msg=risk==='High'?'You may become tax resident after 183 days or similar local tests.':risk==='Moderate'?'You are approaching a common tax residency threshold.':'Your days count is below the most common threshold, but other local rules may still apply.'; if(taxHome==='no'&&home==='yes') msg += ' Losing your tax home while keeping a permanent home abroad increases risk.'; const result={'Days in Country':days,'Maintains Tax Home':taxHome,'Permanent Home Abroad':home,'Risk Level':risk,'Summary':msg};
+   document.getElementById('result').innerHTML=`<div class="grid md:grid-cols-2 gap-4"><div class="result-card bg-emerald-50"><p class="text-sm text-emerald-700">Risk level</p><p class="text-4xl font-bold text-emerald-700">${risk}</p></div><div class="result-card"><p class="text-sm text-slate-500">Summary</p><p class="text-base mt-2">${msg}</p></div></div><div class="mt-4 text-slate-600">Related tools: <a class="text-emerald-700" href="gig-tax-optimizer.html">Gig Tax Optimizer</a> and <a class="text-emerald-700" href="nomad-health-insurance-estimator.html">Nomad Health Insurance Estimator</a>.</div><div class="flex flex-wrap gap-3 mt-6"><button class="px-5 py-3 rounded-2xl bg-slate-900 text-white" onclick='downloadResultPDF("Tax Residency Checker", ${JSON.stringify(result)})'>Download PDF</button><button class="px-5 py-3 rounded-2xl bg-emerald-600 text-white" onclick='emailResult("Tax Residency Checker", ${JSON.stringify(result)})'>Send by Email</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("X","Tax Residency Checker")'>X</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("Facebook","Tax Residency Checker")'>Facebook</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("LinkedIn","Tax Residency Checker")'>LinkedIn</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("WhatsApp","Tax Residency Checker")'>WhatsApp</button></div>`;
+   }
+---

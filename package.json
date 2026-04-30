@@ -1,0 +1,16 @@
+{
+  "name": "finance-tools-hub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Finance Tools Hub static site, built with Eleventy. Source in src/, build output in dist/.",
+  "scripts": {
+    "build": "eleventy",
+    "watch": "eleventy --watch",
+    "serve": "eleventy --serve",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5"
+  }
+}

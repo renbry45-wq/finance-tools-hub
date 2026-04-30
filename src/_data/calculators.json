@@ -1,0 +1,123 @@
+[
+  {
+    "key": "take-home-pay",
+    "slug": "take-home-pay-calculator",
+    "label": "Take-Home Pay",
+    "fullName": "Take-Home Pay Calculator",
+    "category": "income",
+    "blurb": "Open the take-home pay to run a focused 2026 estimate.",
+    "blogTitle": "How to Calculate Take-Home Pay in 2026",
+    "blogDate": "Apr 14, 2026",
+    "blogExcerpt": "Understand paycheck deductions including federal tax, state tax, Social Security, Medicare, 401k, and insurance so you can plan your real monthly cash flow."
+  },
+  {
+    "key": "mortgage-overpayment",
+    "slug": "mortgage-overpayment-calculator",
+    "label": "Mortgage Overpayment",
+    "fullName": "Mortgage Overpayment Calculator",
+    "category": "debt",
+    "blurb": "Open the mortgage overpayment to run a focused 2026 estimate.",
+    "blogTitle": "Is Overpaying Your Mortgage Worth It in 2026?",
+    "blogDate": "Apr 16, 2026",
+    "blogExcerpt": "See when extra payments make sense, how interest savings compound, and how a small overpayment can cut years off a mortgage."
+  },
+  {
+    "key": "credit-card-payoff",
+    "slug": "credit-card-payoff-calculator",
+    "label": "Credit Card Payoff",
+    "fullName": "Credit Card Payoff Calculator",
+    "category": "debt",
+    "blurb": "Open the credit card payoff to run a focused 2026 estimate.",
+    "blogTitle": "The Fastest Way to Pay Off Credit Card Debt",
+    "blogDate": "Apr 17, 2026",
+    "blogExcerpt": "Learn how APR and payment size affect payoff time so you can build a faster debt elimination plan."
+  },
+  {
+    "key": "tax-bracket",
+    "slug": "tax-bracket-calculator",
+    "label": "Tax Bracket",
+    "fullName": "Tax Bracket Calculator",
+    "category": "tax",
+    "blurb": "Open the tax bracket to run a focused 2026 estimate.",
+    "blogTitle": "Understanding 2026 Tax Brackets",
+    "blogDate": "Apr 18, 2026",
+    "blogExcerpt": "Get a simple breakdown of 2026 federal income tax brackets and how to estimate your effective tax rate."
+  },
+  {
+    "key": "retirement-savings",
+    "slug": "retirement-savings-calculator",
+    "label": "Retirement Savings",
+    "fullName": "Retirement Savings Calculator",
+    "category": "retirement",
+    "blurb": "Open the retirement savings to run a focused 2026 estimate.",
+    "blogTitle": "Retirement Savings Planning Guide 2026",
+    "blogDate": "Apr 18, 2026",
+    "blogExcerpt": "Use monthly contributions, current savings, and annual return assumptions to project retirement readiness."
+  },
+  {
+    "key": "gig-tax-optimizer",
+    "slug": "gig-tax-optimizer",
+    "label": "Gig Tax Optimizer",
+    "fullName": "Gig Tax Optimizer",
+    "category": "tax",
+    "blurb": "Open the gig tax optimizer to run a focused 2026 estimate.",
+    "blogTitle": "Optimizing Your Gig Worker Taxes in 2026",
+    "blogDate": "Apr 19, 2026",
+    "blogExcerpt": "Freelancers, rideshare drivers, and creators can use a 2026 gig economy tax calculator to estimate self-employment tax and quarterly payments more confidently."
+  },
+  {
+    "key": "digital-nomad",
+    "slug": "digital-nomad-calculator",
+    "label": "Digital Nomad Calculator",
+    "fullName": "Digital Nomad Calculator",
+    "category": "nomad",
+    "blurb": "Open the digital nomad calculator to run a focused 2026 estimate.",
+    "blogTitle": "The True Cost of Being a Digital Nomad",
+    "blogDate": "Apr 19, 2026",
+    "blogExcerpt": "Our digital nomad cost calculator helps remote workers estimate rent, internet, coworking, transport, and visa costs before relocating."
+  },
+  {
+    "key": "cost-of-living",
+    "slug": "cost-of-living-comparison",
+    "label": "Cost of Living Comparison",
+    "fullName": "Cost of Living Comparison",
+    "category": "nomad",
+    "blurb": "Open the cost of living comparison to run a focused 2026 estimate.",
+    "blogTitle": "Comparing the Cost of Living in Top Nomad Cities",
+    "blogDate": "Apr 20, 2026",
+    "blogExcerpt": "A digital nomad cost of living comparison can reveal whether Lisbon, Bangkok, Mexico City, or Bali fits your income and lifestyle."
+  },
+  {
+    "key": "break-even",
+    "slug": "break-even-savings-calculator",
+    "label": "Break-Even Savings",
+    "fullName": "Break-Even Savings Calculator",
+    "category": "nomad",
+    "blurb": "Open the break-even savings to run a focused 2026 estimate.",
+    "blogTitle": "When Will You Break Even After Moving Abroad?",
+    "blogDate": "Apr 20, 2026",
+    "blogExcerpt": "Use a break-even savings calculator to estimate how long your monthly savings abroad will take to offset relocation costs."
+  },
+  {
+    "key": "tax-residency",
+    "slug": "tax-residency-checker",
+    "label": "Tax Residency Checker",
+    "fullName": "Tax Residency Checker",
+    "category": "nomad",
+    "blurb": "Open the tax residency checker to run a focused 2026 estimate.",
+    "blogTitle": "Tax Residency Considerations for Remote Workers",
+    "blogDate": "Apr 21, 2026",
+    "blogExcerpt": "A tax residency checker can help you evaluate the 183-day rule, tax home issues, and why paperwork matters when living abroad."
+  },
+  {
+    "key": "nomad-insurance",
+    "slug": "nomad-health-insurance-estimator",
+    "label": "Nomad Insurance Estimator",
+    "fullName": "Nomad Health Insurance Estimator",
+    "category": "nomad",
+    "blurb": "Open the nomad insurance estimator to run a focused 2026 estimate.",
+    "blogTitle": "Choosing the Right Health Insurance as a Nomad",
+    "blogDate": "Apr 21, 2026",
+    "blogExcerpt": "Compare digital nomad insurance costs by age, family size, country, and coverage level before you move."
+  }
+]

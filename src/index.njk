@@ -1,0 +1,110 @@
+---
+layout: layouts/base.njk
+title: "Finance Tools Hub 2026 | Free Financial Calculators, Gig Tax & Digital Nomad Tools"
+description: "Compare take-home pay, mortgage overpayments, credit card payoff, tax brackets, retirement savings, gig worker taxes, and digital nomad costs with free calculators for 2026."
+canonical: "https://financetoolshub.net/"
+permalink: /index.html
+activeKey: ""
+schemaBlocks:
+  - '{"@context":"https://schema.org","@type":"Organization","name":"Finance Tools Hub","url":"https://financetoolshub.net/","founder":{"@type":"Person","name":"Renato Bryant"}}'
+---
+
+<section class="relative overflow-hidden bg-gradient-to-br from-emerald-600 via-emerald-500 to-teal-500 text-white">
+  <div class="max-w-6xl mx-auto px-4 py-20 md:py-24">
+    <div class="max-w-3xl">
+      <p class="text-sm uppercase tracking-[0.25em] text-emerald-100">Free Financial Planning Tools</p>
+      <h1 class="mt-4 text-4xl md:text-6xl font-black leading-tight">{{ site.fullName }}</h1>
+      <p class="mt-6 text-lg md:text-xl text-emerald-50">Compare salary take-home pay, mortgage savings, debt payoff timelines, tax brackets, retirement projections, gig worker taxes, and digital nomad living costs with fast, free calculators built for 2026 planning.</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#featured-tools" class="px-6 py-3 rounded-full bg-white text-emerald-700 font-semibold">Explore Popular Tools</a>
+        <a href="/gig-tax-optimizer.html" class="px-6 py-3 rounded-full border border-white/60 text-white font-semibold">Start with Gig Tax Optimizer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 py-14">
+  <div class="grid lg:grid-cols-3 gap-8">
+    <div class="lg:col-span-2 rounded-3xl bg-white p-8 card-shadow border border-slate-200">
+      <h2 class="text-3xl font-bold">One hub for paychecks, taxes, debt, and digital nomad planning</h2>
+      <p class="mt-4 text-slate-600">Finance Tools Hub 2026 is built for employees, freelancers, founders, and remote workers who want practical decisions backed by clear numbers. Whether you are estimating net pay, checking mortgage overpayment savings, projecting retirement growth, or using a 2026 gig economy tax calculator, this hub organizes the most useful tools in one place.</p>
+      <p class="mt-4 text-slate-600">If you are planning an international move, use the <a class="text-emerald-700 font-medium" href="/digital-nomad-calculator.html">Digital Nomad Calculator</a>, then compare monthly budgets with the <a class="text-emerald-700 font-medium" href="/cost-of-living-comparison.html">Cost of Living Comparison</a>, estimate your break-even timeline, review tax residency risk, and check likely medical coverage costs with the <a class="text-emerald-700 font-medium" href="/nomad-health-insurance-estimator.html">Nomad Health Insurance Estimator</a>.</p>
+    </div>
+    <div class="rounded-3xl bg-slate-900 text-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">Most used in 2026</h2>
+      <ul class="mt-5 space-y-3 text-slate-200">
+        <li><a href="/take-home-pay-calculator.html" class="hover:text-white">Take-Home Pay Calculator</a></li>
+        <li><a href="/mortgage-overpayment-calculator.html" class="hover:text-white">Mortgage Overpayment Calculator</a></li>
+        <li><a href="/gig-tax-optimizer.html" class="hover:text-white">Gig Tax Optimizer</a></li>
+        <li><a href="/digital-nomad-calculator.html" class="hover:text-white">Digital Nomad Calculator</a></li>
+        <li><a href="/cost-of-living-comparison.html" class="hover:text-white">Cost of Living Comparison</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="featured-tools" class="max-w-6xl mx-auto px-4 py-8">
+  <div class="flex items-end justify-between gap-4 mb-8">
+    <div>
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-semibold">Featured Tools</p>
+      <h2 class="text-3xl font-bold">Popular Calculators</h2>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+    {%- for c in calculators %}
+    <a href="/{{ c.slug }}.html" class="group rounded-3xl border border-slate-200 bg-white p-6 card-shadow hover:-translate-y-0.5 transition block">
+      <h3 class="font-semibold text-lg text-slate-900 group-hover:text-emerald-700">{{ c.label }}</h3>
+      <p class="text-sm text-slate-600 mt-2">{{ c.blurb }}</p>
+    </a>
+    {%- endfor %}
+  </div>
+</section>
+
+<section id="blog" class="max-w-6xl mx-auto px-4 py-16">
+  <div class="mb-8">
+    <p class="text-sm uppercase tracking-wide text-emerald-700 font-semibold">Blog & Guides</p>
+    <h2 class="text-3xl font-bold">Planning articles for 2026 money decisions</h2>
+  </div>
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+    {%- for c in calculators %}
+    <article class="rounded-3xl border border-slate-200 bg-white p-6 card-shadow">
+      <p class="text-xs uppercase tracking-wide text-emerald-700 font-semibold">{{ c.blogDate }}</p>
+      <h3 class="mt-3 font-semibold text-xl text-slate-900">{{ c.blogTitle }}</h3>
+      <p class="mt-3 text-slate-600">{{ c.blogExcerpt }}</p>
+      <a href="/{{ c.slug }}.html" class="inline-flex mt-4 text-emerald-700 font-medium hover:text-emerald-800">Read More →</a>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="max-w-4xl mx-auto px-4 py-10">
+  <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+  <div class="space-y-4">
+    <details class="rounded-2xl border border-slate-200 bg-white p-5"><summary class="font-semibold cursor-pointer">How accurate are these financial calculators?</summary><p class="mt-3 text-slate-600">They provide practical planning estimates using common 2026 assumptions for taxes, debt, savings, and digital nomad costs. Your real numbers may vary based on state rules, lender terms, credits, and personal circumstances.</p></details>
+    <details class="rounded-2xl border border-slate-200 bg-white p-5"><summary class="font-semibold cursor-pointer">Are these tools suitable for gig workers and freelancers?</summary><p class="mt-3 text-slate-600">Yes. The Gig Tax Optimizer is designed as a 2026 gig economy tax calculator for freelancers, rideshare drivers, delivery couriers, and creators who need to estimate self-employment tax and quarterly payments.</p></details>
+    <details class="rounded-2xl border border-slate-200 bg-white p-5"><summary class="font-semibold cursor-pointer">Can I compare cities before becoming a digital nomad?</summary><p class="mt-3 text-slate-600">Yes. Use the Cost of Living Comparison tool alongside the Digital Nomad Calculator to compare monthly living costs, one-time setup fees, and your likely break-even timeline.</p></details>
+    <details class="rounded-2xl border border-slate-200 bg-white p-5"><summary class="font-semibold cursor-pointer">How do I know if I might become tax resident abroad?</summary><p class="mt-3 text-slate-600">The Tax Residency Checker highlights common risk signals like spending more than 183 days in a country, losing your tax home, or maintaining a permanent home abroad.</p></details>
+    <details class="rounded-2xl border border-slate-200 bg-white p-5"><summary class="font-semibold cursor-pointer">What is the best order to use the nomad tools?</summary><p class="mt-3 text-slate-600">A strong workflow is Digital Nomad Calculator → Cost of Living Comparison → Break-Even Savings Calculator → Tax Residency Checker → Nomad Health Insurance Estimator.</p></details>
+    <details class="rounded-2xl border border-slate-200 bg-white p-5"><summary class="font-semibold cursor-pointer">Do PDF export and email sharing work on all calculator pages?</summary><p class="mt-3 text-slate-600">Yes. Every standalone calculator page includes PDF export, email sharing, and social sharing so you can save or send results quickly.</p></details>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 py-10">
+  <div class="grid lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-2 rounded-3xl bg-white p-8 card-shadow border border-slate-200">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-semibold">Trust & Methodology</p>
+      <h2 class="mt-2 text-3xl font-bold">How Finance Tools Hub approaches financial calculator accuracy</h2>
+      <p class="mt-4 text-slate-600">Finance Tools Hub is designed to make calculator logic easier to understand, not just easier to use. For higher-trust topics such as taxes, cost planning, and residency risk, the site is being expanded with methodology notes, formula explanations, and source-first content so users can evaluate each estimate more confidently.</p>
+      <p class="mt-4 text-slate-600">Read the site background on the <a class="text-emerald-700 font-medium" href="/about.html">About page</a>, review how assumptions and formulas are selected on the <a class="text-emerald-700 font-medium" href="/methodology.html">Methodology page</a>, and see the operator profile on the <a class="text-emerald-700 font-medium" href="/author-renato-bryant.html">Author page</a>.</p>
+    </div>
+    <div class="rounded-3xl bg-emerald-50 p-8 card-shadow border border-emerald-100">
+      <p class="text-sm uppercase tracking-wide text-emerald-700 font-semibold">Quick Links</p>
+      <div class="mt-4 space-y-3">
+        <a href="/about.html" class="block font-medium text-slate-900 hover:text-emerald-700">About Finance Tools Hub</a>
+        <a href="/methodology.html" class="block font-medium text-slate-900 hover:text-emerald-700">Methodology &amp; Sources</a>
+        <a href="/author-renato-bryant.html" class="block font-medium text-slate-900 hover:text-emerald-700">Author: Renato Bryant</a>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,117 @@
+---
+layout: layouts/calculator.njk
+title: "Cost of Living Comparison 2026 | Compare Nomad Cities"
+description: "Use this 2026 digital nomad cost of living comparison tool to compare your current city with up to three destinations using housing, food, internet, coworking, transport, and healthcare costs."
+canonical: "https://financetoolshub.net/cost-of-living-comparison.html"
+permalink: /cost-of-living-comparison.html
+activeKey: "cost-of-living"
+needsPdf: true
+relatedKeys: ["digital-nomad", "break-even", "nomad-insurance"]
+hero:
+  h1: "Cost of Living Comparison 2026"
+  leadIn: "The Finance Tools Hub Cost of Living Comparison is a free 2026 digital nomad cost comparison tool that helps remote workers compare their current city with up to three destinations using practical monthly budget categories such as rent, food, internet, coworking, transport, and healthcare."
+  leadOut: "This page is especially useful for freelancers, founders, remote employees, and nomad planners who want to compare realistic monthly cash requirements before choosing where to live."
+  badges: ["City-to-city comparison", "Monthly budget focus", "Educational estimate only"]
+authorBoxText: "Finance Tools Hub calculators are maintained by Renato Bryant, whose background includes management, budgeting, compliance, and operational oversight. The site is designed to turn financial planning questions into clearer, more measurable comparisons for users making real-world decisions."
+schemaBlocks:
+  - '{
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Cost of Living Comparison",
+    "url":"https://financetoolshub.net/cost-of-living-comparison.html",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"All",
+    "description":"A 2026 digital nomad cost of living comparison tool that helps remote workers compare monthly costs across cities before relocating abroad.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "author":{"@type":"Person","name":"Renato Bryant","url":"https://financetoolshub.net/author-renato-bryant.html"}
+  }'
+calcBody: |
+  <section class="max-w-5xl mx-auto px-4 py-12"><div class="rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 md:p-10 card-shadow"><div class="space-y-8"><div class="grid lg:grid-cols-4 gap-5"><div><label class="block text-sm font-medium mb-2">Current City</label><select id="current-city" onchange="fill('current',this.value)" class="w-full rounded-2xl border-slate-300 p-4"><option>Lisbon</option><option>Barcelona</option><option>Bangkok</option><option>Mexico City</option><option>Bali</option><option>Zagreb</option><option>Tallinn</option><option>Kuala Lumpur</option><option>San José</option><option>Tbilisi</option><option>Ho Chi Minh</option><option>New York</option><option>London</option><option>Berlin</option><option>Sydney</option><option>Other</option></select></div><div><label class="block text-sm font-medium mb-2">Destination 1</label><select id="dest1-city" onchange="fill('dest1',this.value)" class="w-full rounded-2xl border-slate-300 p-4"><option>Lisbon</option><option>Barcelona</option><option>Bangkok</option><option>Mexico City</option><option>Bali</option><option>Zagreb</option><option>Tallinn</option><option>Kuala Lumpur</option><option>San José</option><option>Tbilisi</option><option>Ho Chi Minh</option><option>New York</option><option>London</option><option>Berlin</option><option>Sydney</option><option>Other</option></select></div><div><label class="block text-sm font-medium mb-2">Destination 2</label><select id="dest2-city" onchange="fill('dest2',this.value)" class="w-full rounded-2xl border-slate-300 p-4"><option>Lisbon</option><option>Barcelona</option><option>Bangkok</option><option>Mexico City</option><option>Bali</option><option>Zagreb</option><option>Tallinn</option><option>Kuala Lumpur</option><option>San José</option><option>Tbilisi</option><option>Ho Chi Minh</option><option>New York</option><option>London</option><option>Berlin</option><option>Sydney</option><option>Other</option></select></div><div><label class="block text-sm font-medium mb-2">Destination 3</label><select id="dest3-city" onchange="fill('dest3',this.value)" class="w-full rounded-2xl border-slate-300 p-4"><option>Lisbon</option><option>Barcelona</option><option>Bangkok</option><option>Mexico City</option><option>Bali</option><option>Zagreb</option><option>Tallinn</option><option>Kuala Lumpur</option><option>San José</option><option>Tbilisi</option><option>Ho Chi Minh</option><option>New York</option><option>London</option><option>Berlin</option><option>Sydney</option><option>Other</option></select></div></div><div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5"><div class="rounded-2xl border border-slate-200 p-4"><h3 class="font-semibold mb-3">Current City</h3><div class="grid grid-cols-2 gap-3"><input id="current-rent" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Rent"><input id="current-food" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Food"><input id="current-internet" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Internet"><input id="current-cowork" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Coworking"><input id="current-transport" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Transport"><input id="current-health" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Health"></div></div><div class="rounded-2xl border border-slate-200 p-4"><h3 class="font-semibold mb-3">Destination 1</h3><div class="grid grid-cols-2 gap-3"><input id="dest1-rent" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Rent"><input id="dest1-food" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Food"><input id="dest1-internet" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Internet"><input id="dest1-cowork" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Coworking"><input id="dest1-transport" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Transport"><input id="dest1-health" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Health"></div></div><div class="rounded-2xl border border-slate-200 p-4"><h3 class="font-semibold mb-3">Destination 2</h3><div class="grid grid-cols-2 gap-3"><input id="dest2-rent" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Rent"><input id="dest2-food" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Food"><input id="dest2-internet" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Internet"><input id="dest2-cowork" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Coworking"><input id="dest2-transport" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Transport"><input id="dest2-health" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Health"></div></div><div class="rounded-2xl border border-slate-200 p-4"><h3 class="font-semibold mb-3">Destination 3</h3><div class="grid grid-cols-2 gap-3"><input id="dest3-rent" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Rent"><input id="dest3-food" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Food"><input id="dest3-internet" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Internet"><input id="dest3-cowork" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Coworking"><input id="dest3-transport" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Transport"><input id="dest3-health" type="number" class="rounded-xl border-slate-300 p-3" placeholder="Health"></div></div></div><button onclick="calculate()" class="w-full rounded-2xl bg-emerald-600 py-4 font-semibold text-white hover:bg-emerald-700">Compare Costs</button></div><div id="result" class="mt-8"></div></div></section>
+bodyHtml: |
+  <section class="max-w-5xl mx-auto px-4 py-12"><div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow"><h2 class="text-2xl font-bold">Why this tool matters in 2026</h2><p class="mt-4 text-slate-600">Compare your current city with up to three digital nomad destinations using customizable monthly cost categories. This digital nomad cost of living comparison helps you pressure-test housing, food, internet, coworking, transport, and healthcare assumptions. Good planning works best when you connect this page with the rest of your workflow on Finance Tools Hub.</p></div></section>
+    
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">What this tool does</h2>
+      <p class="mt-4 text-slate-600">This page helps you compare monthly living costs between your current city and up to three alternative destinations. It is intended to reveal the size and shape of the cost gap, not just the cheapest city in the list.</p>
+      <p class="mt-4 text-slate-600">Because digital nomad decisions are often driven by housing, healthcare, and work infrastructure costs, this calculator focuses on categories that tend to materially change the quality and sustainability of a move.</p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">What costs are being compared</h2>
+      <div class="mt-5 grid md:grid-cols-2 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">Core living categories</h3>
+          <p class="mt-2 text-slate-600">Rent, food, transport, and healthcare costs shape the baseline affordability of a city and often determine whether a move remains viable over time.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">Remote-work categories</h3>
+          <p class="mt-2 text-slate-600">Internet and coworking costs matter because many nomad budgets fail when remote-work infrastructure is treated as optional rather than essential.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">How to use this comparison well</h2>
+      <ol class="mt-5 list-decimal pl-6 text-slate-600 space-y-3">
+        <li>Select your current city and confirm the default monthly cost assumptions.</li>
+        <li>Pick up to three comparison cities and adjust the values if your expected lifestyle differs from the baseline.</li>
+        <li>Use the percentage difference to understand whether a destination is only slightly cheaper or meaningfully different.</li>
+        <li>Then open the <a class="text-emerald-700 font-medium" href="/digital-nomad-calculator.html">Digital Nomad Calculator</a> to combine cost comparison with setup fees, taxes, and break-even timing.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">Common scenarios</h2>
+      <div class="mt-5 grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold">The budget-sensitive freelancer</h3>
+          <p class="mt-2 text-slate-600">Which city gives me the best combination of affordable rent, solid internet, and manageable monthly spending on a variable freelance income?</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold">The comfort-focused remote worker</h3>
+          <p class="mt-2 text-slate-600">How much more would I spend if I choose a more developed city with stronger healthcare and coworking options?</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-5">
+          <h3 class="font-semibold">The city shortlister</h3>
+          <p class="mt-2 text-slate-600">Which of three target cities is genuinely cheaper once I compare the same categories side by side instead of relying on generic online averages?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 py-4">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 card-shadow">
+      <h2 class="text-2xl font-bold">Sources and methodology</h2>
+      <p class="mt-4 text-slate-600">This page uses planning benchmarks for city-level cost assumptions. Actual costs vary by neighborhood, apartment quality, visa status, insurance needs, and personal lifestyle choices.</p>
+      <ul class="mt-4 list-disc pl-6 text-slate-600 space-y-2">
+        <li>Category defaults are meant for comparison modeling, not guaranteed local pricing.</li>
+        <li>The strongest way to use this tool is in combination with the <a class="text-emerald-700 font-medium" href="/digital-nomad-calculator.html">Digital Nomad Calculator</a>, <a class="text-emerald-700 font-medium" href="/break-even-savings-calculator.html">Break-Even Savings Calculator</a>, and <a class="text-emerald-700 font-medium" href="/tax-residency-checker.html">Tax Residency Checker</a>.</li>
+        <li>Use the <a class="text-emerald-700 font-medium" href="/methodology.html">Methodology page</a> to review how Finance Tools Hub approaches calculator assumptions and transparency.</li>
+      </ul>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/methodology.html" class="px-4 py-3 rounded-full bg-slate-900 text-white font-medium">Read methodology</a>
+        <a href="/about.html" class="px-4 py-3 rounded-full border border-slate-300 text-slate-800 font-medium">About the site</a>
+        <a href="/author-renato-bryant.html" class="px-4 py-3 rounded-full border border-slate-300 text-slate-800 font-medium">Author profile</a>
+      </div>
+    </div>
+  </section>
+
+
+calcScript: |
+  const costData={Lisbon:{rent:800,food:350,internet:40,cowork:200,transport:80,health:150},Barcelona:{rent:900,food:450,internet:50,cowork:250,transport:100,health:150},Bangkok:{rent:600,food:300,internet:30,cowork:150,transport:50,health:100},'Mexico City':{rent:700,food:350,internet:40,cowork:150,transport:80,health:100},Bali:{rent:500,food:250,internet:25,cowork:120,transport:60,health:120},Zagreb:{rent:800,food:350,internet:40,cowork:200,transport:80,health:150},Tallinn:{rent:750,food:400,internet:40,cowork:200,transport:70,health:140},'Kuala Lumpur':{rent:550,food:250,internet:30,cowork:100,transport:60,health:120},'San José':{rent:800,food:350,internet:40,cowork:150,transport:70,health:130},Tbilisi:{rent:650,food:300,internet:30,cowork:100,transport:60,health:110},'Ho Chi Minh':{rent:500,food:200,internet:25,cowork:100,transport:50,health:100},'New York':{rent:2500,food:600,internet:60,cowork:400,transport:120,health:400},London:{rent:2300,food:550,internet:50,cowork:350,transport:150,health:300},Berlin:{rent:1800,food:500,internet:45,cowork:250,transport:100,health:250},Sydney:{rent:2000,food:550,internet:55,cowork:300,transport:120,health:300},Other:{rent:1000,food:400,internet:50,cowork:200,transport:100,health:150}};
+  function fill(prefix, city){const d=costData[city]||costData.Other; ['rent','food','internet','cowork','transport','health'].forEach(k=>document.getElementById(prefix+'-'+k).value=d[k]);}
+  function init(){ fill('current',document.getElementById('current-city').value); fill('dest1',document.getElementById('dest1-city').value); fill('dest2',document.getElementById('dest2-city').value); fill('dest3',document.getElementById('dest3-city').value); }
+  function cost(prefix){ return ['rent','food','internet','cowork','transport','health'].reduce((s,k)=>s+(parseFloat(document.getElementById(prefix+'-'+k).value)||0),0); }
+  function card(name,costVal,diff){ const cls=diff>0?'text-red-600':diff<0?'text-emerald-600':'text-slate-600'; const label=diff===0?'0%':(diff>0?'+':'')+diff.toFixed(1)+'%'; return `<div class="result-card"><p class="text-sm text-slate-500">${name}</p><p class="text-4xl font-bold text-emerald-700">$${costVal.toFixed(2)}</p><p class="mt-2 text-sm ${cls}">${label} vs current</p></div>`; }
+  function calculate(){ const current=cost('current'), d1=cost('dest1'), d2=cost('dest2'), d3=cost('dest3'); const n1=document.getElementById('dest1-city').value, n2=document.getElementById('dest2-city').value, n3=document.getElementById('dest3-city').value; const result={'Current City':document.getElementById('current-city').value,'Current Monthly Cost':'$'+current.toFixed(2),'Destination 1':n1,'Destination 1 Cost':'$'+d1.toFixed(2),'Destination 2':n2,'Destination 2 Cost':'$'+d2.toFixed(2),'Destination 3':n3,'Destination 3 Cost':'$'+d3.toFixed(2)};
+   document.getElementById('result').innerHTML=`<div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">${card(document.getElementById('current-city').value,current,0)}${card(n1,d1,((d1-current)/current)*100)}${card(n2,d2,((d2-current)/current)*100)}${card(n3,d3,((d3-current)/current)*100)}</div><div class="mt-4 text-slate-600">For a full move model, pair this with the <a class="text-emerald-700" href="digital-nomad-calculator.html">Digital Nomad Calculator</a>.</div><div class="flex flex-wrap gap-3 mt-6"><button class="px-5 py-3 rounded-2xl bg-slate-900 text-white" onclick='downloadResultPDF("Cost of Living Comparison", ${JSON.stringify(result)})'>Download PDF</button><button class="px-5 py-3 rounded-2xl bg-emerald-600 text-white" onclick='emailResult("Cost of Living Comparison", ${JSON.stringify(result)})'>Send by Email</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("X","Cost of Living Comparison")'>X</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("Facebook","Cost of Living Comparison")'>Facebook</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("LinkedIn","Cost of Living Comparison")'>LinkedIn</button><button class="px-4 py-3 rounded-2xl border" onclick='shareUrl("WhatsApp","Cost of Living Comparison")'>WhatsApp</button></div>`;
+   }
+  document.addEventListener('DOMContentLoaded', init);
+---

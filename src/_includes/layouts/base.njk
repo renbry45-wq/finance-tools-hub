@@ -1,0 +1,55 @@
+{# Base layout. Page (or intermediate layout) provides via frontmatter:
+     - title, description, canonical, activeKey
+     - needsPdf (bool)         : load jsPDF in <head>
+     - schemaBlocks (string[]) : JSON-LD blocks emitted in <head>
+     - useSlimFooter (bool)    : use slim footer (trust pages) vs rich footer
+     - calcScript (string)     : raw JS injected at end of <body>
+     - content (auto)          : rendered body from the page or intermediate layout
+#}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="{{ canonical }}">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/icon-512.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/site.css">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  {% if needsPdf %}<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>{% endif %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaId }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '{{ site.gaId }}');
+  </script>
+
+  {# Site-wide WebSite schema #}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{ site.fullName }}","url":"{{ site.baseUrl }}/"}</script>
+
+  {# Page-specific schema blocks via frontmatter #}
+  {%- if schemaBlocks %}
+    {%- for block in schemaBlocks %}
+  <script type="application/ld+json">{{ block | safe }}</script>
+    {%- endfor %}
+  {%- endif %}
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+  {% include "partials/header-nav.njk" %}
+
+  {{ content | safe }}
+
+  {% if useSlimFooter %}
+    {% include "partials/footer-slim.njk" %}
+  {% else %}
+    {% include "partials/footer.njk" %}
+  {% endif %}
+
+  <script src="/assets/js/site.js"></script>
+  {% if calcScript %}<script>{{ calcScript | safe }}</script>{% endif %}
+</body>
+</html>

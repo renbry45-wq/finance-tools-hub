@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+useSlimFooter: true
+---
+{# Trust page intermediate layout. Page frontmatter provides:
+     hero      : { eyebrow, h1, lead }
+     trustBody : raw HTML body content
+   useSlimFooter is set above so base.njk picks the slim footer. #}
+<main class="max-w-5xl mx-auto px-4 py-12">
+  <section class="rounded-3xl glass card-shadow border border-white/70 p-8 md:p-12 mb-8">
+    <span class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700">{{ hero.eyebrow }}</span>
+    <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">{{ hero.h1 }}</h1>
+    {% if hero.lead %}<p class="mt-5 text-lg text-slate-600 max-w-3xl">{{ hero.lead | safe }}</p>{% endif %}
+  </section>
+
+  {{ trustBody | safe }}
+</main>

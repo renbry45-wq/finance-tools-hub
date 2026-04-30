@@ -1,0 +1,22 @@
+html { scroll-behavior: smooth; }
+
+.tab-link { transition: all .2s ease; }
+.tab-link:hover { color: #059669; }
+
+.card-shadow { box-shadow: 0 12px 36px rgba(15, 23, 42, .08); }
+.glass { background: rgba(255, 255, 255, .78); backdrop-filter: blur(8px); }
+
+.result-card {
+  border: 1px solid #d1fae5;
+  background: #fff;
+  border-radius: 1.2rem;
+  padding: 1.25rem;
+}
+
+.prose p { margin-bottom: 1rem; }
+.prose ul { margin: 1rem 0 1rem 1.2rem; }
+.prose li { margin: .35rem 0; }
+
+/* Hide horizontal scrollbar on the mobile tab nav */
+.scrollbar-hidden::-webkit-scrollbar { display: none; }
+.scrollbar-hidden { -ms-overflow-style: none; scrollbar-width: none; }
