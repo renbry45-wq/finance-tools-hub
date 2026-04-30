@@ -142,7 +142,7 @@ calcScript: |
     if (!wrap) return;
     const card = wrap.querySelector('[data-decision-state]');
     card.className = 'rounded-2xl border p-6';
-    const colorMap = { emerald: 'bg-emerald-50 border-emerald-200', slate: 'bg-slate-50 border-slate-200', amber: 'bg-amber-50 border-amber-200', red: 'bg-red-50 border-red-200' };
+    const colorMap = { emerald: 'bg-emerald-100 border-emerald-300', slate: 'bg-slate-100 border-slate-300', amber: 'bg-amber-100 border-amber-300', red: 'bg-red-100 border-red-300' };
     card.classList.add(...colorMap[color].split(' '));
     card.dataset.state = stateKey;
     card.querySelector('[data-state-eyebrow]').textContent = 'Decision state';
