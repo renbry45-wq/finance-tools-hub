@@ -14,7 +14,10 @@
       {%- endfor %}
     {%- endfor %}
   </ol>
-  <div class="mt-auto pt-6">
-    <a href="{{ wf.primaryCta.url }}" class="inline-flex items-center px-5 py-3 rounded-full bg-emerald-600 text-white font-semibold hover:bg-emerald-700">{{ wf.primaryCta.label }}</a>
+  <div class="mt-auto pt-6 flex flex-col items-start gap-3">
+    <a href="{{ wf.primaryCta.url }}" class="inline-flex items-center px-5 py-3 rounded-full bg-emerald-600 text-white font-semibold hover:bg-emerald-700" data-workflow-key="{{ wf.key }}">{{ wf.primaryCta.label }}</a>
+    {%- if wf.secondaryCta %}
+    <a href="{{ wf.secondaryCta.url }}" download class="inline-flex text-sm text-emerald-700 font-medium hover:text-emerald-800"{% if wf.secondaryCta.leadMagnetKey %} data-lead-magnet="{{ wf.secondaryCta.leadMagnetKey }}" data-lead-magnet-placement="homepage-workflow"{% endif %}>{{ wf.secondaryCta.label }} →</a>
+    {%- endif %}
   </div>
 </article>

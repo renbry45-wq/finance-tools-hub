@@ -21,6 +21,7 @@
     "tagline": "Run the numbers on relocation: monthly costs, break-even, tax residency, and insurance.",
     "audience": "Remote workers, digital nomads, and anyone considering an international move.",
     "calculatorKeys": ["digital-nomad", "cost-of-living", "break-even", "tax-residency", "nomad-insurance"],
-    "primaryCta": { "label": "Start with Digital Nomad Calculator", "url": "/digital-nomad-calculator.html" }
+    "primaryCta": { "label": "Start with Digital Nomad Calculator", "url": "/digital-nomad-calculator.html" },
+    "secondaryCta": { "label": "Get the Nomad Move Decision Pack", "url": "/downloads/nomad-move-decision-pack.md", "leadMagnetKey": "nomad-move-pack" }
   }
 ]

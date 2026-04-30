@@ -14,6 +14,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/static/manifest.json": "manifest.json" });
   eleventyConfig.addPassthroughCopy({ "src/static/sw.js": "sw.js" });
   eleventyConfig.addPassthroughCopy({ "src/static/robots.txt": "robots.txt" });
+  eleventyConfig.addPassthroughCopy({ "src/static/downloads": "downloads" });
 
   // Use Nunjucks for HTML files so {% include %} / {% extends %} work in .html templates
   eleventyConfig.setTemplateFormats(["njk", "11ty.js"]);

@@ -1,0 +1,18 @@
+[
+  {
+    "key": "nomad-move-pack",
+    "title": "Digital Nomad Move Decision Pack",
+    "shortTitle": "Nomad Move Decision Pack",
+    "tagline": "A 5-section worksheet for deciding whether moving abroad makes financial sense.",
+    "bullets": [
+      "Move decision checklist (15 questions)",
+      "Cost worksheet template",
+      "Break-even formula and worked example",
+      "Tax residency self-check",
+      "Curated calculator and article links"
+    ],
+    "downloadUrl": "/downloads/nomad-move-decision-pack.md",
+    "ctaButton": "Get the Decision Pack",
+    "appliesToCalculatorKeys": ["digital-nomad", "cost-of-living", "break-even", "tax-residency", "nomad-insurance"]
+  }
+]

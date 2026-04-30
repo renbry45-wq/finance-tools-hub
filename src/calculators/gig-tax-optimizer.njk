@@ -142,6 +142,10 @@ calcScript: |
    if (reserveRatio >= 0.25) setDecisionState('reasonably-prepared', 'emerald', 'Reasonably prepared', "Your estimated tax owed is at or above the typical 25% reserve guideline for self-employed workers. This is the estimated tax bill itself, not a safety buffer — many freelancers add 5–10% on top to absorb income swings or missed deductions. Confirm with a tax professional.", "Use the Take-Home Pay Calculator if you also have W-2 income to combine.", '/take-home-pay-calculator.html');
    else if (reserveRatio >= 0.15) setDecisionState('reserve-may-be-light', 'amber', 'Reserve may be light', "Your reserve is below the typical 25–30% range many self-employed workers target. A surprise tax bill is possible if income or deductions shift.", "Use the Tax Bracket Calculator to estimate federal income tax separately from self-employment tax.", '/tax-bracket-calculator.html');
    else setDecisionState('underreserved', 'red', 'Under-reserved', "Your reserve is well below typical self-employment guidance. Many freelancers face quarterly payment penalties at this level. This is not advice — talk to a CPA or EA.", "Use the Tax Bracket Calculator to estimate federal income tax exposure on this income.", '/tax-bracket-calculator.html');
+   const __ds = document.querySelector('[data-decision-state]');
+   const __params = { calculator_slug: document.body.dataset.calculatorSlug || '' };
+   if (__ds && __ds.dataset.state) __params.decision_state = __ds.dataset.state;
+   if (window.fthTrack) window.fthTrack('fth_calculate_click', __params);
    }
   function setDecisionState(stateKey, color, label, body, nextText, nextHref) {
     const wrap = document.getElementById('decision-state');

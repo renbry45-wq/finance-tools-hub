@@ -29,7 +29,7 @@ layout: layouts/base.njk
 {% endif %}
 
 {# --------- Article body --------- #}
-<article class="prose max-w-3xl mx-auto px-4 py-8">
+<article class="prose max-w-3xl mx-auto px-4 py-8" data-article-body data-article-slug="{{ slug }}">
   {{ body | safe }}
 </article>
 

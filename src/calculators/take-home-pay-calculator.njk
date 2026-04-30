@@ -41,6 +41,10 @@ calcScript: |
    if (netRatio >= 0.70) setDecisionState('strong-cash-flow', 'emerald', 'Strong cash flow', "Your take-home is on the higher end of typical for your inputs. You're keeping a solid share of gross pay after taxes and benefits.", "Consider whether your retirement contribution rate is high enough — try the Retirement Savings Calculator.", '/retirement-savings-calculator.html');
    else if (netRatio >= 0.60) setDecisionState('typical-cash-flow', 'slate', 'Typical cash flow', "Your take-home is roughly typical for the inputs you provided. Most US W-2 workers fall in this band.", "If you have side income, model self-employment tax separately with the Gig Tax Optimizer.", '/gig-tax-optimizer.html');
    else setDecisionState('lower-take-home', 'amber', 'Lower take-home', "Your take-home is on the lower end relative to gross pay. High deductions, high tax rate, or expensive benefits could be the cause.", "Use the Tax Bracket Calculator to see how much of this is federal tax versus other deductions.", '/tax-bracket-calculator.html');
+   const __ds = document.querySelector('[data-decision-state]');
+   const __params = { calculator_slug: document.body.dataset.calculatorSlug || '' };
+   if (__ds && __ds.dataset.state) __params.decision_state = __ds.dataset.state;
+   if (window.fthTrack) window.fthTrack('fth_calculate_click', __params);
    }
   document.getElementById('pay-type').addEventListener('change', ()=>{ const h=document.getElementById('hourly-wrap'); h.classList.toggle('hidden', document.getElementById('pay-type').value!=='hourly'); });
   function setDecisionState(stateKey, color, label, body, nextText, nextHref) {
