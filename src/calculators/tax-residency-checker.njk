@@ -14,17 +14,18 @@ hero:
   badges: ["Remote work tax awareness", "183-day risk check", "Educational screening tool"]
 authorBoxText: "Finance Tools Hub calculators are maintained by Renato Bryant, whose background includes management, budgeting, compliance, and operational oversight. For higher-trust topics, the site is being expanded with clearer methodology, assumptions, and explanatory content so users can judge estimates more carefully."
 schemaBlocks:
-  - '{
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"Tax Residency Checker",
-    "url":"https://financetoolshub.net/tax-residency-checker.html",
-    "applicationCategory":"BusinessApplication",
-    "operatingSystem":"All",
-    "description":"A 2026 remote work tax residency checker that helps digital nomads and remote workers review common residency risk triggers before or during a move abroad.",
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-    "author":{"@type":"Person","name":"Renato Bryant","url":"https://financetoolshub.net/author-renato-bryant.html"}
-  }'
+  - '{"@context":"https://schema.org","@type":"WebApplication","name":"Tax Residency Checker","url":"https://financetoolshub.net/tax-residency-checker.html","applicationCategory":"FinanceApplication","operatingSystem":"All","description":"A 2026 remote work tax residency screening tool that helps digital nomads review common residency triggers — the 183-day rule, tax home, and permanent home — before or during a move abroad.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Renato Bryant","url":"https://financetoolshub.net/author-renato-bryant.html"}}'
+faqs:
+  - q: "What is the 183-day rule?"
+    a: "It's the most common test countries use to determine tax residency: spend more than 183 days (roughly half the year) in a country and that country generally treats you as tax-resident on worldwide income. Exact phrasing varies — some count consecutive days, others a calendar year, others a rolling 12-month window."
+  - q: "Is the 183-day rule the only test that matters?"
+    a: "No. Tax home, permanent home, center of vital interests, and habitual abode can all override or supplement the day count. Spending under 183 days doesn't automatically protect you if your tax home and family ties are still abroad. The companion guide on the 183-day rule walks through each test."
+  - q: "Does this tool give me a legal conclusion?"
+    a: "No. It's a screening tool. It flags situations where your inputs suggest higher residency risk and recommends professional review. It is not a substitute for a cross-border tax professional, especially when stakes are high."
+  - q: "Does leaving my home country end my tax obligation there?"
+    a: "Depends on the country. The US taxes citizens on worldwide income regardless of where they live. Most other countries operate on residency-based taxation, where properly established non-residency ends the obligation — but 'properly' has specific requirements. Both sides need answers."
+  - q: "When should I talk to a cross-border tax pro instead of using a calculator?"
+    a: "If you're splitting time across multiple countries, maintaining significant home-country ties, planning a multi-year move, living in a country with aggressive residency tests, or having unusual income (capital gains, equity events, business sale) during the move year. The calculator flags these; a professional handles them."
 calcBody: |
   <section class="max-w-5xl mx-auto px-4 py-12"><div class="rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 md:p-10 card-shadow"><div class="max-w-2xl space-y-5"><div><label class="block text-sm font-medium mb-2">Days Spent in Destination Country</label><input id="days" type="number" value="90" class="w-full rounded-2xl border-slate-300 p-4"></div><div><label class="block text-sm font-medium mb-2">Do you maintain a tax home in your home country?</label><select id="tax-home" class="w-full rounded-2xl border-slate-300 p-4"><option value="yes">Yes</option><option value="no">No</option></select></div><div><label class="block text-sm font-medium mb-2">Do you have a permanent home available abroad?</label><select id="perm-home" class="w-full rounded-2xl border-slate-300 p-4"><option value="no">No</option><option value="yes">Yes</option></select></div><button onclick="calculate()" class="w-full rounded-2xl bg-emerald-600 py-4 font-semibold text-white hover:bg-emerald-700">Check Residency</button></div><div id="result" class="mt-8"></div><div id="decision-state" class="mt-6" hidden><div class="rounded-2xl border p-6" data-decision-state><p class="text-xs uppercase tracking-wide font-semibold" data-state-eyebrow></p><h3 class="mt-2 text-xl font-bold" data-state-label></h3><p class="mt-3 text-slate-700" data-state-body></p><div class="mt-4 rounded-xl bg-white border border-slate-200 p-4"><p class="text-sm font-semibold text-slate-900">Recommended next step</p><p class="mt-1 text-sm text-slate-700" data-next-step-text></p><a class="inline-block mt-2 text-emerald-700 font-medium" data-next-step-link>Open the next calculator →</a></div><p class="mt-4 text-xs text-slate-500">This is an educational estimate. Real outcomes depend on your full situation. Talk to a qualified professional before making major decisions.</p></div></div></div></section>
 bodyHtml: |

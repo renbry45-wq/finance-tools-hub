@@ -14,7 +14,18 @@ hero:
   badges: ["Federal tax estimate", "Effective rate view", "Educational estimate only"]
 authorBoxText: "Finance Tools Hub calculators are maintained by Renato Bryant, whose background includes management, budgeting, compliance, and operational oversight. The site is designed to make tax planning questions easier to understand through clearer, practical estimates."
 schemaBlocks:
-  - '{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Tax Bracket Calculator","url":"https://financetoolshub.net/tax-bracket-calculator.html","applicationCategory":"BusinessApplication","operatingSystem":"All","description":"A 2026 federal tax bracket calculator that estimates tax owed and effective tax rate from taxable income and filing status.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Renato Bryant","url":"https://financetoolshub.net/author-renato-bryant.html"}}'
+  - '{"@context":"https://schema.org","@type":"WebApplication","name":"Tax Bracket Calculator","url":"https://financetoolshub.net/tax-bracket-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"All","description":"A 2026 federal tax bracket calculator that estimates total tax owed and effective tax rate from taxable income and filing status.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Renato Bryant","url":"https://financetoolshub.net/author-renato-bryant.html"}}'
+faqs:
+  - q: "What's the difference between a marginal and effective tax rate?"
+    a: "The marginal rate is the rate applied to your last dollar of income — the bracket your top dollar falls into. The effective rate is your total tax divided by total taxable income. Effective is always lower than marginal because the lower brackets get taxed at their lower rates first."
+  - q: "Does crossing into a higher bracket tax all my income at the higher rate?"
+    a: "No. Only the dollars above the bracket threshold are taxed at the higher rate. The income below stays taxed at the lower rates. This is why a raise that crosses a bracket never reduces your take-home pay overall."
+  - q: "Does this calculator include state tax?"
+    a: "No. It estimates federal income tax only. State tax varies widely (some states have none, others use brackets or flat rates), so add your state's effective rate separately when planning your full tax bill."
+  - q: "What income should I enter — gross or taxable?"
+    a: "Enter taxable income, which is roughly gross income minus the standard deduction (or itemized deductions) and any above-the-line adjustments. The standard deduction for 2026 is the most common starting point for most filers."
+  - q: "Are these brackets the official 2026 IRS brackets?"
+    a: "The calculator uses the 2026 federal bracket structure for planning. Always cross-check the IRS's published tables for your filing year before relying on the figure for actual tax preparation."
 calcBody: |
   <section class="max-w-5xl mx-auto px-4 py-12"><div class="rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 md:p-10 card-shadow"><div class="grid md:grid-cols-2 gap-8"><div class="space-y-5"><div><label class="block text-sm font-medium mb-2">Filing Status</label><select id="status" class="w-full rounded-2xl border-slate-300 p-4"><option value="single">Single</option><option value="married">Married Filing Jointly</option><option value="head">Head of Household</option></select></div><div><label class="block text-sm font-medium mb-2">Taxable Income ($)</label><input id="income" type="number" value="85000" class="w-full rounded-2xl border-slate-300 p-4"></div><button onclick="calculate()" class="w-full rounded-2xl bg-emerald-600 py-4 font-semibold text-white hover:bg-emerald-700">Calculate Estimated Tax</button></div></div><div id="result" class="mt-8"></div></div></section>
 bodyHtml: |

@@ -48,6 +48,16 @@
   <script type="application/ld+json">{{ block | safe }}</script>
     {%- endfor %}
   {%- endif %}
+
+  {# FAQPage schema, generated from `faqs` frontmatter (array of {q, a}) #}
+  {%- if faqs %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{%- for f in faqs %}{"@type":"Question","name":{{ f.q | dump | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | dump | safe }}}}{%- if not loop.last %},{% endif %}{%- endfor %}]}</script>
+  {%- endif %}
+
+  {# HowTo schema, generated from `howTo` frontmatter ({name, description, steps:[{name,text}]}) #}
+  {%- if howTo %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":{{ howTo.name | dump | safe }},"description":{{ howTo.description | dump | safe }},"step":[{%- for s in howTo.steps %}{"@type":"HowToStep","position":{{ loop.index }},"name":{{ s.name | dump | safe }},"text":{{ s.text | dump | safe }}}{%- if not loop.last %},{% endif %}{%- endfor %}]}</script>
+  {%- endif %}
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans"{%- for c in calculators -%}{% if c.key == activeKey %} data-calculator-slug="{{ c.slug }}"{% endif %}{%- endfor -%}>
 

@@ -14,17 +14,18 @@ hero:
   badges: ["Monthly + annual premium view", "Country comparison support", "Educational estimate only"]
 authorBoxText: "Finance Tools Hub calculators are maintained by Renato Bryant, whose background includes management, budgeting, compliance, and operational oversight. The site is designed to make practical financial planning questions easier to evaluate with clearer assumptions and measurable outputs."
 schemaBlocks:
-  - '{
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"Nomad Health Insurance Estimator",
-    "url":"https://financetoolshub.net/nomad-health-insurance-estimator.html",
-    "applicationCategory":"BusinessApplication",
-    "operatingSystem":"All",
-    "description":"A 2026 digital nomad health insurance estimator that helps remote workers compare monthly and annual coverage costs by age, family size, country, and coverage level.",
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-    "author":{"@type":"Person","name":"Renato Bryant","url":"https://financetoolshub.net/author-renato-bryant.html"}
-  }'
+  - '{"@context":"https://schema.org","@type":"WebApplication","name":"Nomad Health Insurance Estimator","url":"https://financetoolshub.net/nomad-health-insurance-estimator.html","applicationCategory":"FinanceApplication","operatingSystem":"All","description":"A 2026 digital nomad health insurance estimator that compares monthly and annual international coverage costs by age, family size, destination country, and coverage level.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Renato Bryant","url":"https://financetoolshub.net/author-renato-bryant.html"}}'
+faqs:
+  - q: "Why do I need international health insurance as a digital nomad?"
+    a: "Domestic insurance from your home country usually doesn't cover you long-term abroad, and travel insurance isn't designed to be primary coverage for months or years. International (expat) health insurance fills the gap with global coverage that meets visa and medical-emergency needs."
+  - q: "How much does nomad health insurance typically cost?"
+    a: "A common range for a single nomad in their 30s with global coverage (excluding the US) is roughly $80–$200/month for a basic plan. US coverage, family plans, and pre-existing conditions push premiums substantially higher."
+  - q: "Why is the US so much more expensive to include?"
+    a: "US healthcare prices are several times higher than most other countries, so insurers charge a large premium for plans that cover treatment in the US. Many nomads exclude US coverage and buy short-term US travel insurance only when they visit home."
+  - q: "Does the estimator account for pre-existing conditions?"
+    a: "No. Pre-existing conditions are usually quoted separately by insurers and can change premiums significantly. Use this tool for a baseline, then get a real quote that includes your medical history."
+  - q: "What's the difference between basic, standard, and premium coverage?"
+    a: "Basic typically covers emergencies and inpatient care with higher deductibles. Standard adds outpatient and routine care. Premium includes maternity, dental, vision, and lower deductibles. Pick based on how much routine care you expect to use."
 calcBody: |
   <section class="max-w-5xl mx-auto px-4 py-12"><div class="rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8 md:p-10 card-shadow"><div class="max-w-2xl space-y-5"><div><label class="block text-sm font-medium mb-2">Age</label><input id="age" type="number" value="30" class="w-full rounded-2xl border-slate-300 p-4"></div><div><label class="block text-sm font-medium mb-2">Family Size</label><select id="family" class="w-full rounded-2xl border-slate-300 p-4"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div><div><label class="block text-sm font-medium mb-2">Destination Country</label><select id="country" class="w-full rounded-2xl border-slate-300 p-4"><option>Portugal</option><option>Spain</option><option>Thailand</option><option>Mexico</option><option>Indonesia</option><option>Croatia</option><option>Estonia</option><option>Malaysia</option><option>Costa Rica</option><option>Georgia</option><option>Vietnam</option><option>USA</option><option>UK</option><option>Germany</option><option>Australia</option><option>Other</option></select></div><div><label class="block text-sm font-medium mb-2">Coverage Level</label><select id="level" class="w-full rounded-2xl border-slate-300 p-4"><option value="basic">Basic</option><option value="standard">Standard</option><option value="premium">Premium</option></select></div><button onclick="calculate()" class="w-full rounded-2xl bg-emerald-600 py-4 font-semibold text-white hover:bg-emerald-700">Estimate Insurance</button></div><div id="result" class="mt-8"></div></div></section>
 bodyHtml: |
