@@ -58,6 +58,11 @@
   {%- if howTo %}
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":{{ howTo.name | dump | safe }},"description":{{ howTo.description | dump | safe }},"step":[{%- for s in howTo.steps %}{"@type":"HowToStep","position":{{ loop.index }},"name":{{ s.name | dump | safe }},"text":{{ s.text | dump | safe }}}{%- if not loop.last %},{% endif %}{%- endfor %}]}</script>
   {%- endif %}
+
+  {# Article schema, generated from articleDatePublished / articleHeadline / articleKeywords frontmatter #}
+  {%- if articleDatePublished %}
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ articleHeadline | dump | safe }},"description":{{ description | dump | safe }},"image":"https://financetoolshub.net/icon-512.png","datePublished":{{ articleDatePublished | isoDateTime | dump | safe }},"dateModified":{{ articleDateModified | isoDateTime | dump | safe }},"keywords":{{ articleKeywords | dump | safe }},"author":{"@type":"Person","name":"Renato Bryant","url":"https://financetoolshub.net/author-renato-bryant.html"},"publisher":{"@type":"Organization","name":"Finance Tools Hub","url":"https://financetoolshub.net/"},"mainEntityOfPage":{"@type":"WebPage","@id":{{ canonical | dump | safe }}}}</script>
+  {%- endif %}
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans"{%- for c in calculators -%}{% if c.key == activeKey %} data-calculator-slug="{{ c.slug }}"{% endif %}{%- endfor -%}>
 

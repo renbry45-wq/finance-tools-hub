@@ -31,6 +31,13 @@ export default function (eleventyConfig) {
     return dt.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
   });
 
+  // Filter: ISO 8601 datetime with UTC offset for schema.org Article datePublished/dateModified
+  eleventyConfig.addFilter("isoDateTime", (d) => {
+    if (!d) return "";
+    const dt = new Date(d);
+    return dt.toISOString().slice(0, 10) + "T00:00:00+00:00";
+  });
+
   return {
     dir: {
       input: "src",
