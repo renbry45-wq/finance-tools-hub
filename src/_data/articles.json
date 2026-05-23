@@ -102,5 +102,18 @@
     "primaryCalculatorKey": "gig-tax-optimizer",
     "relatedCalculatorKeys": ["gig-tax-optimizer", "take-home-pay", "break-even"],
     "tags": ["freelance", "self-employment", "financial-planning"]
+  },
+  {
+    "slug": "how-to-use-edgar-to-research-any-company",
+    "title": "How to Use SEC EDGAR to Research Any Company for Free",
+    "description": "SEC EDGAR gives you free access to every public company's financials. Here's how solopreneurs and freelancers can use it to vet clients, size up competitors, and make smarter business decisions.",
+    "h1": "How to use SEC EDGAR to research any company for free",
+    "publishedDate": "2026-05-23",
+    "lastUpdated": "2026-05-23",
+    "readingMinutes": 8,
+    "workflowKey": "freelance-gig",
+    "primaryCalculatorKey": "gig-tax-optimizer",
+    "relatedCalculatorKeys": ["gig-tax-optimizer", "break-even", "cost-of-living"],
+    "tags": ["sec-edgar", "business-research", "freelance"]
   }
 ]
