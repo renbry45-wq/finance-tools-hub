@@ -26,3 +26,25 @@ html { scroll-behavior: smooth; }
 /* Hide horizontal scrollbar on the mobile tab nav */
 .scrollbar-hidden::-webkit-scrollbar { display: none; }
 .scrollbar-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Mobile nav slide */
+#mobile-nav { transition: opacity .15s ease; }
+
+/* Hero donut chart */
+.donut-ring { transform: rotate(-90deg); transform-origin: 50% 50%; }
+
+/* Calc icon chip */
+.calc-icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: .75rem;
+  background: #f0fdf4;
+  color: #059669;
+  margin-bottom: .75rem;
+}
+
+/* Article category band */
+.article-band { height: .25rem; border-radius: .25rem 0 0 0; }

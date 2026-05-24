@@ -1,17 +1,64 @@
-{# Header nav — desktop sticky + mobile horizontal scroll. Active link is
-   highlighted via the page's `activeKey` frontmatter (matches nav.primary[].key). #}
-<div class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-    <a href="/" class="font-extrabold text-slate-900 text-lg">{{ site.name }}</a>
-    <div class="hidden md:flex items-center gap-2 flex-wrap justify-end">
-      {%- for item in nav.primary %}
-      <a href="{{ item.url }}" class="tab-link shrink-0 px-4 py-3 rounded-full text-sm font-medium {% if item.key == activeKey %}text-emerald-700 bg-emerald-50{% else %}text-slate-700 hover:bg-slate-100{% endif %}">{{ item.label }}</a>
-      {%- endfor %}
+{# Header nav — Minimal & Airy redesign. Logo + tagline, key nav links, mobile hamburger. #}
+<header class="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+
+    {# Logo #}
+    <a href="/" class="flex items-center gap-2.5 shrink-0 group">
+      <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center shrink-0">
+        <svg class="w-4 h-4 text-white" viewBox="0 0 16 16" fill="currentColor">
+          <rect x="1" y="9" width="2.5" height="6" rx=".5"/>
+          <rect x="4.5" y="5.5" width="2.5" height="9.5" rx=".5"/>
+          <rect x="8" y="2" width="2.5" height="13" rx=".5"/>
+          <rect x="11.5" y="6.5" width="2.5" height="8.5" rx=".5"/>
+        </svg>
+      </div>
+      <div class="leading-none">
+        <span class="font-extrabold text-slate-900 text-base leading-none block group-hover:text-emerald-700 transition">FinanceToolsHub</span>
+        <span class="text-xs text-slate-400 leading-none block mt-0.5">Clear. Accurate. Actionable.</span>
+      </div>
+    </a>
+
+    {# Desktop nav #}
+    <nav class="hidden md:flex items-center gap-0.5">
+      <a href="/take-home-pay-calculator.html" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-slate-50 rounded-md transition {% if activeKey == 'take-home-pay' or activeKey == 'tax-bracket' or activeKey == 'retirement-savings' or activeKey == 'mortgage-overpayment' or activeKey == 'credit-card-payoff' or activeKey == 'gig-tax-optimizer' or activeKey == 'digital-nomad' or activeKey == 'cost-of-living' or activeKey == 'break-even' or activeKey == 'tax-residency' or activeKey == 'nomad-insurance' %}text-emerald-700 bg-emerald-50{% endif %}">Calculators</a>
+      <a href="/articles/" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-slate-50 rounded-md transition">Articles</a>
+      <a href="/about.html" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-slate-50 rounded-md transition {% if activeKey == 'about' %}text-emerald-700 bg-emerald-50{% endif %}">About</a>
+      <a href="/methodology.html" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-slate-50 rounded-md transition {% if activeKey == 'methodology' %}text-emerald-700 bg-emerald-50{% endif %}">Methodology</a>
+      <a href="/author-renato-bryant.html" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-emerald-700 hover:bg-slate-50 rounded-md transition {% if activeKey == 'author' %}text-emerald-700 bg-emerald-50{% endif %}">Author</a>
+      <button class="p-2 ml-1 text-slate-400 hover:text-slate-600 rounded-md transition" aria-label="Search">
+        <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      {# Desktop CTA #}
+      <a href="/take-home-pay-calculator.html" class="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition shadow-sm">Start Calculating</a>
+
+      {# Mobile hamburger #}
+      <button
+        class="md:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100 transition"
+        aria-label="Open menu"
+        onclick="var m=document.getElementById('mobile-nav');m.classList.toggle('hidden');">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
     </div>
   </div>
-  <div class="md:hidden overflow-x-auto whitespace-nowrap scrollbar-hidden px-4 pb-3 flex gap-2">
-    {%- for item in nav.primary %}
-    <a href="{{ item.url }}" class="tab-link shrink-0 px-4 py-3 rounded-full text-sm font-medium {% if item.key == activeKey %}text-emerald-700 bg-emerald-50{% else %}text-slate-700 hover:bg-slate-100{% endif %}">{{ item.label }}</a>
-    {%- endfor %}
+
+  {# Mobile menu #}
+  <div id="mobile-nav" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-3 space-y-0.5">
+    <a href="/take-home-pay-calculator.html" class="block px-3 py-2.5 text-sm font-medium text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md transition">Calculators</a>
+    <a href="/articles/" class="block px-3 py-2.5 text-sm font-medium text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md transition">Articles</a>
+    <a href="/about.html" class="block px-3 py-2.5 text-sm font-medium text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md transition">About</a>
+    <a href="/methodology.html" class="block px-3 py-2.5 text-sm font-medium text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md transition">Methodology</a>
+    <a href="/author-renato-bryant.html" class="block px-3 py-2.5 text-sm font-medium text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md transition">Author</a>
+    <div class="pt-3 border-t border-slate-100 mt-2">
+      <a href="/take-home-pay-calculator.html" class="block px-3 py-2.5 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg text-center transition">Start Calculating</a>
+    </div>
   </div>
-</div>
+</header>

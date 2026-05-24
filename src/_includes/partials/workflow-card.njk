@@ -1,23 +1,76 @@
-{# Renders one workflow block. Expects `wf` to be set in the calling scope
-   to a single workflow object from src/_data/workflows.json. Calculator labels
-   are looked up from src/_data/calculators.json by `key`. #}
-<article class="bg-white border border-slate-200 rounded-3xl p-8 card-shadow flex flex-col">
-  <h3 class="text-2xl font-bold text-slate-900">{{ wf.title }}</h3>
-  <p class="mt-3 text-slate-600">{{ wf.tagline }}</p>
-  <p class="mt-4 text-sm text-slate-500"><span class="font-semibold text-slate-700">Who it's for:</span> {{ wf.audience }}</p>
-  <ol class="mt-5 space-y-2 list-decimal list-inside text-slate-700">
+{# Renders one workflow block — Minimal & Airy redesign.
+   Expects `wf` set in calling scope from workflows.json.
+   Icons and accent colors are keyed on wf.key. #}
+
+{%- if wf.key == "income-reality" %}
+  {%- set wfIconBg = "bg-sky-50" %}
+  {%- set wfIconColor = "text-sky-600" %}
+  {%- set wfAccent = "border-sky-200" %}
+  {%- set wfTitleColor = "text-slate-900" %}
+  {%- set wfCtaColor = "text-sky-600 hover:text-sky-700" %}
+{%- elif wf.key == "freelance-gig" %}
+  {%- set wfIconBg = "bg-violet-50" %}
+  {%- set wfIconColor = "text-violet-600" %}
+  {%- set wfAccent = "border-violet-200" %}
+  {%- set wfTitleColor = "text-slate-900" %}
+  {%- set wfCtaColor = "text-violet-600 hover:text-violet-700" %}
+{%- else %}
+  {%- set wfIconBg = "bg-emerald-50" %}
+  {%- set wfIconColor = "text-emerald-700" %}
+  {%- set wfAccent = "border-emerald-200" %}
+  {%- set wfTitleColor = "text-slate-900" %}
+  {%- set wfCtaColor = "text-emerald-700 hover:text-emerald-800" %}
+{%- endif %}
+
+<article class="bg-white border border-slate-200 rounded-2xl p-7 shadow-sm flex flex-col hover:shadow-md transition-shadow">
+
+  {# Icon #}
+  <div class="w-12 h-12 rounded-xl {{ wfIconBg }} flex items-center justify-center mb-5">
+    {%- if wf.key == "income-reality" %}
+    <svg class="w-6 h-6 {{ wfIconColor }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2"/>
+      <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+    </svg>
+    {%- elif wf.key == "freelance-gig" %}
+    <svg class="w-6 h-6 {{ wfIconColor }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="1" x2="12" y2="23"/>
+      <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+    </svg>
+    {%- else %}
+    <svg class="w-6 h-6 {{ wfIconColor }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="2" y1="12" x2="22" y2="12"/>
+      <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+    </svg>
+    {%- endif %}
+  </div>
+
+  {# Title + description #}
+  <h3 class="text-xl font-bold {{ wfTitleColor }}">{{ wf.title }}</h3>
+  <p class="mt-2 text-sm text-slate-600 leading-relaxed">{{ wf.tagline }}</p>
+
+  {# Calculator checklist #}
+  <ul class="mt-5 space-y-2.5">
     {%- for key in wf.calculatorKeys %}
       {%- for c in calculators %}
         {%- if c.key == key %}
-    <li><a href="/{{ c.slug }}.html" class="text-emerald-700 font-medium hover:text-emerald-800">{{ c.label }}</a></li>
+    <li class="flex items-start gap-2.5">
+      <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+      </svg>
+      <a href="/{{ c.slug }}.html" class="text-sm text-slate-700 hover:text-emerald-700 transition leading-snug">{{ c.label }}</a>
+    </li>
         {%- endif %}
       {%- endfor %}
     {%- endfor %}
-  </ol>
-  <div class="mt-auto pt-6 flex flex-col items-start gap-3">
-    <a href="{{ wf.primaryCta.url }}" class="inline-flex items-center px-5 py-3 rounded-full bg-emerald-600 text-white font-semibold hover:bg-emerald-700" data-workflow-key="{{ wf.key }}">{{ wf.primaryCta.label }}</a>
+  </ul>
+
+  {# CTA #}
+  <div class="mt-auto pt-6 flex flex-col items-start gap-2.5">
+    <a href="{{ wf.primaryCta.url }}" class="inline-flex items-center gap-1 text-sm font-semibold {{ wfCtaColor }} transition" data-workflow-key="{{ wf.key }}">Get Started <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     {%- if wf.secondaryCta %}
-    <a href="{{ wf.secondaryCta.url }}" download class="inline-flex text-sm text-emerald-700 font-medium hover:text-emerald-800"{% if wf.secondaryCta.leadMagnetKey %} data-lead-magnet="{{ wf.secondaryCta.leadMagnetKey }}" data-lead-magnet-placement="homepage-workflow"{% endif %}>{{ wf.secondaryCta.label }} →</a>
+    <a href="{{ wf.secondaryCta.url }}" download class="inline-flex text-xs text-slate-500 hover:text-emerald-700 transition"{% if wf.secondaryCta.leadMagnetKey %} data-lead-magnet="{{ wf.secondaryCta.leadMagnetKey }}" data-lead-magnet-placement="homepage-workflow"{% endif %}>{{ wf.secondaryCta.label }} →</a>
     {%- endif %}
   </div>
+
 </article>
