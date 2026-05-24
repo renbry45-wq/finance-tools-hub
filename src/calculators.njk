@@ -1,0 +1,124 @@
+---
+layout: layouts/base.njk
+title: "All Calculators | Finance Tools Hub"
+description: "Browse all 11 free financial calculators — take-home pay, freelance taxes, debt, retirement, digital nomad, and more. Grouped by financial decision workflow."
+canonical: "https://financetoolshub.net/calculators/"
+permalink: /calculators/index.html
+activeKey: ""
+---
+
+{# =====================================================================
+   HERO
+   ===================================================================== #}
+<section class="bg-gradient-to-br from-white to-emerald-50 border-b border-slate-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <a href="/" class="text-sm font-medium text-emerald-700">← Back to home</a>
+    <p class="mt-5 text-xs uppercase tracking-widest text-emerald-700 font-semibold">All Tools</p>
+    <h1 class="mt-2 text-4xl md:text-5xl font-black text-slate-900 leading-tight">All Calculators</h1>
+    <p class="mt-4 text-lg text-slate-600 max-w-2xl">11 free financial tools grouped by decision type. Pick a workflow or jump straight to any calculator.</p>
+  </div>
+</section>
+
+{# =====================================================================
+   WORKFLOW GROUPS
+   ===================================================================== #}
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-16">
+
+  {%- for wf in workflows %}
+
+  {# Workflow section header #}
+  <section>
+    <div class="flex items-start gap-4 mb-8 pb-4 border-b border-slate-200">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0
+        {%- if wf.key == 'income-reality' %} bg-sky-50
+        {%- elif wf.key == 'freelance-gig' %} bg-violet-50
+        {%- else %} bg-emerald-50{%- endif %}">
+        {%- if wf.key == "income-reality" %}
+        <svg class="w-5 h-5 text-sky-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+        </svg>
+        {%- elif wf.key == "freelance-gig" %}
+        <svg class="w-5 h-5 text-violet-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+        </svg>
+        {%- else %}
+        <svg class="w-5 h-5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+        </svg>
+        {%- endif %}
+      </div>
+      <div>
+        <h2 class="text-2xl font-black text-slate-900">{{ wf.title }}</h2>
+        <p class="text-sm text-slate-500 mt-1">{{ wf.audience }}</p>
+      </div>
+    </div>
+
+    {# Calculator cards for this workflow #}
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {%- for key in wf.calculatorKeys %}
+        {%- for c in calculators %}
+          {%- if c.key == key %}
+      <a href="/{{ c.slug }}.html" class="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:border-emerald-300 hover:shadow-md transition flex flex-col gap-3">
+        <div class="w-9 h-9 rounded-lg flex items-center justify-center
+          {%- if wf.key == 'income-reality' %} bg-sky-50
+          {%- elif wf.key == 'freelance-gig' %} bg-violet-50
+          {%- else %} bg-emerald-50{%- endif %}">
+          {%- if c.key == "take-home-pay" %}
+          <svg class="w-4.5 h-4.5 text-sky-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          {%- elif c.key == "mortgage-overpayment" %}
+          <svg class="w-4.5 h-4.5 text-sky-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          {%- elif c.key == "credit-card-payoff" %}
+          <svg class="w-4.5 h-4.5 text-sky-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          {%- elif c.key == "tax-bracket" %}
+          <svg class="w-4.5 h-4.5
+            {%- if wf.key == 'income-reality' %} text-sky-600{%- else %} text-violet-600{%- endif %}"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          {%- elif c.key == "retirement-savings" %}
+          <svg class="w-4.5 h-4.5
+            {%- if wf.key == 'income-reality' %} text-sky-600{%- else %} text-violet-600{%- endif %}"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          {%- elif c.key == "gig-tax-optimizer" %}
+          <svg class="w-4.5 h-4.5 text-violet-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          {%- elif c.key == "digital-nomad" %}
+          <svg class="w-4.5 h-4.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          {%- elif c.key == "cost-of-living" %}
+          <svg class="w-4.5 h-4.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {%- elif c.key == "break-even" %}
+          <svg class="w-4.5 h-4.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          {%- elif c.key == "tax-residency" %}
+          <svg class="w-4.5 h-4.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          {%- else %}
+          <svg class="w-4.5 h-4.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          {%- endif %}
+        </div>
+        <div>
+          <h3 class="font-bold text-slate-900 group-hover:text-emerald-700 transition text-sm leading-snug">{{ c.label }}</h3>
+          <p class="text-xs text-slate-500 mt-1 leading-relaxed">{{ c.blurb | truncate(80) }}</p>
+        </div>
+        <span class="text-xs font-medium text-emerald-600 mt-auto">Open calculator →</span>
+      </a>
+          {%- endif %}
+        {%- endfor %}
+      {%- endfor %}
+    </div>
+
+    {# Workflow primary CTA #}
+    <div class="mt-6">
+      <a href="{{ wf.primaryCta.url }}" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-emerald-700 transition">
+        <svg class="w-4 h-4 text-emerald-500" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"/>
+        </svg>
+        Start {{ wf.title }} workflow — {{ wf.primaryCta.label }}
+      </a>
+    </div>
+  </section>
+
+  {%- endfor %}
+
+</div>
+
+{# =====================================================================
+   TRUST STRIP
+   ===================================================================== #}
+{% include "partials/trust-strip.njk" %}
