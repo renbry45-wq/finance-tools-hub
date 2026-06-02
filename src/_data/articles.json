@@ -104,6 +104,19 @@
     "tags": ["freelance", "self-employment", "financial-planning"]
   },
   {
+    "slug": "how-to-overpay-mortgage-freelance-income",
+    "title": "How to Overpay Your Mortgage on a Freelance Income",
+    "description": "Freelance income varies month to month — here's how to build a mortgage overpayment strategy that works even when your earnings aren't predictable.",
+    "h1": "How to overpay your mortgage on a freelance income",
+    "publishedDate": "2026-06-01",
+    "lastUpdated": "2026-06-01",
+    "readingMinutes": 6,
+    "workflowKey": "freelance-gig",
+    "primaryCalculatorKey": "mortgage-overpayment",
+    "relatedCalculatorKeys": ["mortgage-overpayment", "gig-tax-optimizer", "break-even"],
+    "tags": ["freelance", "mortgage", "overpayment"]
+  },
+  {
     "slug": "how-to-use-edgar-to-research-any-company",
     "title": "How to Use SEC EDGAR to Research Any Company for Free",
     "description": "SEC EDGAR gives you free access to every public company's financials. Here's how solopreneurs and freelancers can use it to vet clients, size up competitors, and make smarter business decisions.",
