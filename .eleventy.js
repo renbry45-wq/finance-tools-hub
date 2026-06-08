@@ -16,6 +16,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/static/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy({ "src/static/downloads": "downloads" });
   eleventyConfig.addPassthroughCopy({ "src/static/_redirects": "_redirects" });
+  eleventyConfig.addPassthroughCopy({ "src/e6f1bb9f54094705b1096031c59edc33.txt": "e6f1bb9f54094705b1096031c59edc33.txt" });
 
   // Use Nunjucks for HTML files so {% include %} / {% extends %} work in .html templates
   eleventyConfig.setTemplateFormats(["njk", "11ty.js"]);
