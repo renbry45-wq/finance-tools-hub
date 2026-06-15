@@ -12,7 +12,7 @@
 //  7. Internal calculator links use valid slugs
 //  8. layout field is exactly "layouts/article.njk"
 //  9. GA4 measurement ID G-Y8BZLBG7V5 present in site.json + base.njk
-// 10. Title length ≤ 65 chars (warning only — does not block push)
+// 10. Title length ≤ 70 chars total (Bing limit; warning only — does not block push)
 
 'use strict';
 
@@ -329,12 +329,12 @@ console.log('──────────────────────�
     pass = false;
   }
 
-  if (pass) console.log(`✅ Check 9: GA4 ID present in base.njk`);
+  if (pass) console.log(`✅ Check 9: GA4 ID G-Y8BZLBG7V5 present in base.njk`);
 }
 
-// ─── Check 10: Title length ≤ 65 chars (warning only) ────────────────────────
+// ─── Check 10: Title length ≤ 70 chars (Bing limit; warning only) ────────────
 {
-  const MAX_LEN = 65;
+  const MAX_LEN = 70;
   const warnings10 = [];
 
   for (const njkPath of njkFiles) {
@@ -344,14 +344,31 @@ console.log('──────────────────────�
 
     const title = parsed.fields.title;
     if (title.length > MAX_LEN) {
-      warnings10.push(`[WARN] Check 10: Title too long (${title.length} chars) in: ${relPath(njkPath)} — trim by ${title.length - MAX_LEN} chars`);
+      warnings10.push(`[WARN] Check 10: Title too long (${title.length} chars) in: ${relPath(njkPath)} — shorten to ≤${MAX_LEN} chars`);
+    }
+  }
+
+  const EXTRA_PAGES = [
+    path.join(ROOT, 'src/about.njk'),
+    path.join(ROOT, 'src/methodology.njk'),
+    path.join(ROOT, 'src/index.njk'),
+  ];
+  for (const njkPath of EXTRA_PAGES) {
+    if (!fs.existsSync(njkPath)) continue;
+    const content = fs.readFileSync(njkPath, 'utf8');
+    const parsed = parseFrontmatter(content);
+    if (!parsed || !parsed.fields.title) continue;
+
+    const title = parsed.fields.title;
+    if (title.length > MAX_LEN) {
+      warnings10.push(`[WARN] Check 10: Title too long (${title.length} chars) in: ${relPath(njkPath)} — shorten to ≤${MAX_LEN} chars`);
     }
   }
 
   if (warnings10.length === 0) {
-    console.log('✅ Check 10: All titles within 65 chars');
+    console.log(`✅ Check 10: All titles within ${MAX_LEN} chars (Bing limit)`);
   } else {
-    console.log(`⚠️  Check 10: ${warnings10.length} title(s) exceed 65 chars (warnings only — push not blocked)`);
+    console.log(`⚠️  Check 10: ${warnings10.length} title(s) exceed ${MAX_LEN} chars (warnings only — push not blocked)`);
     for (const w of warnings10) {
       console.log(w);
     }
