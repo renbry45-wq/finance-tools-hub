@@ -2,7 +2,7 @@
 // Run: node scripts/seo-validate.cjs
 // Installed as: .git/hooks/pre-push (not committed — local only)
 //
-// 8 checks:
+// 10 checks:
 //  1. No future publishedDate in articles.json
 //  2. No duplicate slugs in articles.json
 //  3. Every slug has a matching .njk file
@@ -11,6 +11,8 @@
 //  6. FAQ keys are q/a not question/answer
 //  7. Internal calculator links use valid slugs
 //  8. layout field is exactly "layouts/article.njk"
+//  9. GA4 measurement ID G-Y8BZLBG7V5 present in site.json + base.njk
+// 10. Title length ≤ 65 chars (warning only — does not block push)
 
 'use strict';
 
@@ -21,6 +23,8 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const ARTICLES_JSON = path.join(ROOT, 'src/_data/articles.json');
 const CALCULATORS_JSON = path.join(ROOT, 'src/_data/calculators.json');
+const SITE_JSON = path.join(ROOT, 'src/_data/site.json');
+const BASE_NJK = path.join(ROOT, 'src/_includes/layouts/base.njk');
 const ARTICLES_DIR = path.join(ROOT, 'src/articles');
 const ASSETS_DIR = path.join(ROOT, 'src/assets');
 
@@ -306,6 +310,52 @@ console.log('──────────────────────�
     }
   }
   if (pass) console.log('✅ Check 8: All layouts correct');
+}
+
+// ─── Check 9: GA4 measurement ID present ─────────────────────────────────────
+{
+  const EXPECTED_GA_ID = 'G-Y8BZLBG7V5';
+  let pass = true;
+
+  const siteData = JSON.parse(fs.readFileSync(SITE_JSON, 'utf8'));
+  if (siteData.gaId !== EXPECTED_GA_ID) {
+    failures.push(`[FAIL] Check 9: GA4 measurement ID ${EXPECTED_GA_ID} not found in site.json (found: "${siteData.gaId || 'missing'}")`);
+    pass = false;
+  }
+
+  const baseContent = fs.readFileSync(BASE_NJK, 'utf8');
+  if (!baseContent.includes('site.gaId')) {
+    failures.push(`[FAIL] Check 9: GA4 measurement ID ${EXPECTED_GA_ID} not found in base.njk — site.gaId reference missing`);
+    pass = false;
+  }
+
+  if (pass) console.log(`✅ Check 9: GA4 ID present in base.njk`);
+}
+
+// ─── Check 10: Title length ≤ 65 chars (warning only) ────────────────────────
+{
+  const MAX_LEN = 65;
+  const warnings10 = [];
+
+  for (const njkPath of njkFiles) {
+    const content = fs.readFileSync(njkPath, 'utf8');
+    const parsed = parseFrontmatter(content);
+    if (!parsed || !parsed.fields.title) continue;
+
+    const title = parsed.fields.title;
+    if (title.length > MAX_LEN) {
+      warnings10.push(`[WARN] Check 10: Title too long (${title.length} chars) in: ${relPath(njkPath)} — trim by ${title.length - MAX_LEN} chars`);
+    }
+  }
+
+  if (warnings10.length === 0) {
+    console.log('✅ Check 10: All titles within 65 chars');
+  } else {
+    console.log(`⚠️  Check 10: ${warnings10.length} title(s) exceed 65 chars (warnings only — push not blocked)`);
+    for (const w of warnings10) {
+      console.log(w);
+    }
+  }
 }
 
 // ─── Summary ─────────────────────────────────────────────────────────────────
