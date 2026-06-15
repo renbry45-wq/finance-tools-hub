@@ -128,5 +128,21 @@
     "primaryCalculatorKey": "gig-tax-optimizer",
     "relatedCalculatorKeys": ["gig-tax-optimizer", "break-even", "cost-of-living"],
     "tags": ["sec-edgar", "business-research", "freelance"]
+  },
+  {
+    "slug": "freelancer-tax-checklist-quarterly",
+    "title": "Freelancer Tax Checklist: Quarterly Set-Aside",
+    "description": "A practical quarterly tax checklist for freelancers and self-employed workers — what to set aside, when to pay, and how to avoid an unexpected tax bill.",
+    "h1": "Freelancer Tax Checklist: What to Set Aside Each Quarter",
+    "publishedDate": "2026-06-15",
+    "lastUpdated": "2026-06-15",
+    "author": "Renato Bryant",
+    "category": "Freelance & Gig",
+    "readingMinutes": 7,
+    "workflowKey": "freelance-gig",
+    "primaryCalculatorKey": "gig-tax-optimizer",
+    "relatedCalculatorKeys": ["break-even", "take-home-pay"],
+    "tags": ["articles", "freelance-gig"],
+    "articleKeywords": ["freelancer tax checklist", "quarterly tax freelancer", "self-employed tax checklist", "what to set aside for taxes freelancer", "estimated quarterly taxes freelancer", "freelance tax reserve"]
   }
 ]
