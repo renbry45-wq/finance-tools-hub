@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: "All Calculators | Finance Tools Hub"
-description: "Browse all 11 free financial calculators — take-home pay, freelance taxes, debt, retirement, digital nomad, and more. Grouped by financial decision workflow."
+description: "Browse all 12 free financial calculators — take-home pay, freelance taxes, debt, retirement, savings goal, digital nomad, and more. Grouped by financial decision workflow."
 canonical: "https://financetoolshub.net/calculators/"
 permalink: /calculators/index.html
 activeKey: ""
@@ -15,7 +15,7 @@ activeKey: ""
     <a href="/" class="text-sm font-medium text-emerald-700">← Back to home</a>
     <p class="mt-5 text-xs uppercase tracking-widest text-emerald-700 font-semibold">All Tools</p>
     <h1 class="mt-2 text-4xl md:text-5xl font-black text-slate-900 leading-tight">All Calculators</h1>
-    <p class="mt-4 text-lg text-slate-600 max-w-2xl">11 free financial tools grouped by decision type. Pick a workflow or jump straight to any calculator.</p>
+    <p class="mt-4 text-lg text-slate-600 max-w-2xl">12 free financial tools grouped by decision type. Pick a workflow or jump straight to any calculator.</p>
   </div>
 </section>
 
@@ -88,6 +88,8 @@ activeKey: ""
           <svg class="w-4.5 h-4.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
           {%- elif c.key == "tax-residency" %}
           <svg class="w-4.5 h-4.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          {%- elif c.key == "savings-goal" %}
+          <svg class="w-4.5 h-4.5 text-sky-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           {%- else %}
           <svg class="w-4.5 h-4.5 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
           {%- endif %}

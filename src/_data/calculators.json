@@ -119,5 +119,16 @@
     "blogTitle": "Choosing the Right Health Insurance as a Nomad",
     "blogDate": "Apr 21, 2026",
     "blogExcerpt": "Compare digital nomad insurance costs by age, family size, country, and coverage level before you move."
+  },
+  {
+    "key": "savings-goal",
+    "slug": "savings-goal-calculator",
+    "label": "Savings Goal Calculator",
+    "fullName": "Savings Goal Calculator",
+    "category": "income",
+    "blurb": "Calculate how long it will take to reach any savings target with your current contributions and interest rate.",
+    "blogTitle": "How Long to Reach Your Savings Goal?",
+    "blogDate": "Jun 15, 2026",
+    "blogExcerpt": "Calculate how many months it takes to reach any savings target using compound interest and monthly contributions."
   }
 ]

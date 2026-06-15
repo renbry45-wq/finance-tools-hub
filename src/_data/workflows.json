@@ -4,7 +4,7 @@
     "title": "Income Reality",
     "tagline": "What you actually take home, what the IRS takes, and whether you're saving enough.",
     "audience": "Employees, salaried workers, anyone comparing job offers or planning a paycheck-driven budget.",
-    "calculatorKeys": ["take-home-pay", "tax-bracket", "retirement-savings"],
+    "calculatorKeys": ["take-home-pay", "tax-bracket", "retirement-savings", "savings-goal"],
     "primaryCta": { "label": "Start with Take-Home Pay", "url": "/take-home-pay-calculator.html" }
   },
   {
