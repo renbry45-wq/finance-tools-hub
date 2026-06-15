@@ -10,7 +10,7 @@
     "serve": "eleventy --serve",
     "clean": "rm -rf dist",
     "seo:validate": "node scripts/seo-validate.cjs",
-    "postinstall": "cp scripts/seo-validate.cjs .git/hooks/pre-push && chmod +x .git/hooks/pre-push"
+    "postinstall": "node -e \"const fs=require('fs');fs.writeFileSync('.git/hooks/pre-push','#!/bin/sh\\nnode scripts/seo-validate.cjs\\nif [ \\$? -ne 0 ]; then exit 1; fi\\n');require('child_process').execSync('chmod +x .git/hooks/pre-push')\""
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5"
