@@ -1,1 +1,10 @@
+# FinanceToolsHub _redirects
+# ─────────────────────────────────────────────────────────────
+# IMPORTANT: Cloudflare Pages has "Pretty URLs" enabled.
+# Cloudflare automatically strips .html from all URLs (308 redirect).
+# NEVER use 301/302 redirects pointing TO a .html destination —
+# this creates a redirect loop: non-html → 301 → .html → 308 → non-html.
+# Use 200 rewrites instead: /path /path.html 200
+# ─────────────────────────────────────────────────────────────
+
 /tax-residency-checker /tax-residency-checker.html 200

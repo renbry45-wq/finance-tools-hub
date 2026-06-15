@@ -13,6 +13,7 @@
 //  8. layout field is exactly "layouts/article.njk"
 //  9. GA4 measurement ID G-Y8BZLBG7V5 present in site.json + base.njk
 // 10. Title length ≤ 70 chars total (Bing limit; warning only — does not block push)
+// 11. No circular redirects or 301/302→.html rules in src/static/_redirects (Cloudflare Pretty-URLs)
 
 'use strict';
 
@@ -371,6 +372,55 @@ console.log('──────────────────────�
     console.log(`⚠️  Check 10: ${warnings10.length} title(s) exceed ${MAX_LEN} chars (warnings only — push not blocked)`);
     for (const w of warnings10) {
       console.log(w);
+    }
+  }
+}
+
+// ─── Check 11: Redirect loop detection ───────────────────────────────────────
+{
+  const REDIRECTS_FILE = path.join(ROOT, 'src/static/_redirects');
+
+  if (!fs.existsSync(REDIRECTS_FILE)) {
+    console.log('[WARN] Check 11: src/static/_redirects not found — skip');
+  } else {
+    let pass = true;
+    const lines = fs.readFileSync(REDIRECTS_FILE, 'utf8').split('\n');
+    const rules = [];
+
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const parts = trimmed.split(/\s+/);
+      if (parts.length < 2) continue;
+      const source = parts[0];
+      const dest = parts[1];
+      const status = parts[2] ? parseInt(parts[2], 10) : 301;
+      rules.push({ source, dest, status, raw: trimmed });
+    }
+
+    // Build source→dest map for circular detection
+    const destMap = new Map();
+    for (const r of rules) {
+      destMap.set(r.source, r.dest);
+    }
+
+    for (const r of rules) {
+      // Type A: circular redirect (A→B and B→A)
+      if (destMap.has(r.dest) && destMap.get(r.dest) === r.source) {
+        failures.push(`[FAIL] Check 11: Circular redirect detected: ${r.source} → ${r.dest} → ${r.source}`);
+        pass = false;
+      }
+
+      // Type B: 301/302 redirect pointing TO a .html URL (Cloudflare Pretty-URLs conflict)
+      if ((r.status === 301 || r.status === 302) && r.dest.endsWith('.html')) {
+        failures.push(`[FAIL] Check 11: Redirect to .html URL with 301/302 detected: "${r.raw}" — use 200 rewrite instead (Cloudflare Pretty-URLs conflict)`);
+        pass = false;
+      }
+    }
+
+    if (pass) {
+      const n = rules.length;
+      console.log(`✅ Check 11: No circular or Cloudflare-conflicting redirects found (${n} rule${n === 1 ? '' : 's'} checked)`);
     }
   }
 }
