@@ -2,7 +2,7 @@
 // Run: node scripts/seo-validate.cjs
 // Installed as: .git/hooks/pre-push (not committed — local only)
 //
-// 10 checks:
+// 12 checks:
 //  1. No future publishedDate in articles.json
 //  2. No duplicate slugs in articles.json
 //  3. Every slug has a matching .njk file
@@ -14,6 +14,7 @@
 //  9. GA4 measurement ID G-Y8BZLBG7V5 present in site.json + base.njk
 // 10. Title length ≤ 70 chars total (Bing limit; warning only — does not block push)
 // 11. No circular redirects or 301/302→.html rules in src/static/_redirects (Cloudflare Pretty-URLs)
+// 12. No native npm packages in package.json (Cloudflare Pages cannot build native modules)
 
 'use strict';
 
@@ -423,6 +424,30 @@ console.log('──────────────────────�
       console.log(`✅ Check 11: No circular or Cloudflare-conflicting redirects found (${n} rule${n === 1 ? '' : 's'} checked)`);
     }
   }
+}
+
+// ─── Check 12: No native npm packages ────────────────────────────────────────
+{
+  const NATIVE_PACKAGES = [
+    'canvas', 'sharp', 'node-gyp', 'bcrypt', 'sqlite3',
+    'better-sqlite3', 'node-sass', 'fsevents',
+  ];
+  const pkgPath = path.join(ROOT, 'package.json');
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+  let pass = true;
+
+  for (const section of ['dependencies', 'devDependencies']) {
+    const deps = pkg[section];
+    if (!deps) continue;
+    for (const name of NATIVE_PACKAGES) {
+      if (name in deps) {
+        failures.push(`[FAIL] Check 12: Native package "${name}" found in ${section} — Cloudflare Pages cannot build native modules. Install/uninstall locally only for one-time scripts. Never commit to package.json.`);
+        pass = false;
+      }
+    }
+  }
+
+  if (pass) console.log('✅ Check 12: No native packages in package.json (safe for Cloudflare Pages)');
 }
 
 // ─── Summary ─────────────────────────────────────────────────────────────────
