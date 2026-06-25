@@ -33,6 +33,67 @@ If it fails, the push is blocked. Fix the issue before retrying.
 11. No circular redirects or Cloudflare Pretty-URLs conflicts in _redirects
 12. No native npm packages (canvas, sharp, node-gyp etc) in package.json
 
+## SECURITY — SKILLSPECTOR MANDATORY SCAN (added Jun 25 2026)
+
+### Before installing ANYTHING, run this scan first:
+```bash
+skillspector scan  --no-llm
+```
+
+This applies to ALL of the following without exception:
+- GitHub repos (any language, any org, including NVIDIA/Anthropic/Google)
+- npm packages being added to package.json
+- pip packages being added to requirements.txt
+- Claude skills or plugins
+- MCP servers
+- Browser extensions or automation tools
+- Any third-party CLI tool
+
+### Risk gate — STOP/GO decision:
+| Score | Action |
+|---|---|
+| 0–49 | ✅ SAFE — proceed with install |
+| 50–79 | ⚠️ REVIEW — read findings, flag to Renato before proceeding |
+| 80–99 | 🔴 HIGH — stop, do not install, report full findings to Renato |
+| 100 | ⛔ CRITICAL — do not install under any circumstances. Report immediately. |
+
+### Real examples from this portfolio:
+- Agent Reach (Panniantong/Agent-Reach): Score 100/100 CRITICAL — cancelled.
+  Reason: prompt injection from scraped Reddit content into shell subprocess.
+  Machine had Cloudflare secrets + Supabase keys at risk.
+- caveman/compress: Score 100/100 CRITICAL — kept after review.
+  Reason: all findings were false positives driven by legitimate design
+  (memory compressor scans creds to redact them). curl-pipe finding
+  never triggered (installed via plugin system, not install.sh).
+
+### How to scan:
+```bash
+# Scan a GitHub repo before cloning or installing:
+skillspector scan https://github.com/owner/repo --no-llm
+
+# Scan an already-installed local skill or plugin:
+skillspector scan ~/.claude/plugins/cache/pluginname --no-llm --recursive
+
+# Scan a local directory:
+skillspector scan ./path/to/skill --no-llm
+```
+
+### SkillSpector install info:
+- Version: v2.3.7
+- New laptop path: C:\Users\renbr\.local\bin\skillspector.exe (covers FTH)
+- Installed via: uv tool install git+https://github.com/NVIDIA/SkillSpector.git
+- To update: uv tool upgrade skillspector
+
+### FTH-specific note:
+FTH has no MCP servers, pip packages, or CLI tools. The primary scenario
+where this rule fires is npm package installs — which Validator Check 12
+already blocks (canvas, sharp, node-gyp, etc.). This rule provides an
+additional human-review gate before Check 12 even runs.
+
+### If SkillSpector is not available on this machine:
+Do NOT proceed with any install. Tell Renato that SkillSpector needs
+to be installed first before continuing. Never skip the scan.
+
 ## SEO / GEO / EEAT — PERMANENT RULES (added Jun 25 2026)
 
 ### NEVER do these without explicit approval:
