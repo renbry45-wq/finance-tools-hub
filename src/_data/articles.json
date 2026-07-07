@@ -144,5 +144,21 @@
     "relatedCalculatorKeys": ["break-even", "take-home-pay"],
     "tags": ["articles", "freelance-gig"],
     "articleKeywords": ["freelancer tax checklist", "quarterly tax freelancer", "self-employed tax checklist", "what to set aside for taxes freelancer", "estimated quarterly taxes freelancer", "freelance tax reserve"]
+  },
+  {
+    "slug": "dollar-value-of-job-benefits",
+    "title": "How to Calculate the Dollar Value of Job Benefits",
+    "description": "A higher salary isn't always the better offer. Here's how to convert health insurance, 401(k) match, PTO, and other benefits into real dollar values.",
+    "h1": "How to Calculate the Dollar Value of Job Benefits",
+    "publishedDate": "2026-07-07",
+    "lastUpdated": "2026-07-07",
+    "author": "Renato Bryant",
+    "category": "Income Reality",
+    "readingMinutes": 7,
+    "workflowKey": "income-reality",
+    "primaryCalculatorKey": "take-home-pay",
+    "relatedCalculatorKeys": ["take-home-pay", "retirement-savings"],
+    "tags": ["articles", "income-reality"],
+    "articleKeywords": ["dollar value of job benefits", "how much are benefits worth", "value of benefits package", "benefits vs salary", "calculate value of employee benefits", "job offer benefits comparison"]
   }
 ]
