@@ -2,7 +2,7 @@
 // Run: node scripts/seo-validate.cjs
 // Installed as: .git/hooks/pre-push (not committed — local only)
 //
-// 12 checks:
+// 13 checks:
 //  1. No future publishedDate in articles.json
 //  2. No duplicate slugs in articles.json
 //  3. Every slug has a matching .njk file
@@ -15,6 +15,7 @@
 // 10. Title length ≤ 70 chars total (Bing limit; warning only — does not block push)
 // 11. No circular redirects or 301/302→.html rules in src/static/_redirects (Cloudflare Pretty-URLs)
 // 12. No native npm packages in package.json (Cloudflare Pages cannot build native modules)
+// 13. Every article and calculator page has a .html → clean URL 200 rewrite in src/static/_redirects
 
 'use strict';
 
@@ -448,6 +449,51 @@ console.log('──────────────────────�
   }
 
   if (pass) console.log('✅ Check 12: No native packages in package.json (safe for Cloudflare Pages)');
+}
+
+// ─── Check 13: Every article/calculator page has .html → clean URL 200 rewrite ─
+{
+  const REDIRECTS_FILE = path.join(ROOT, 'src/static/_redirects');
+  let pass = true;
+  const missing = [];
+
+  const existingSources = new Set();
+  if (fs.existsSync(REDIRECTS_FILE)) {
+    for (const line of fs.readFileSync(REDIRECTS_FILE, 'utf8').split('\n')) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const parts = trimmed.split(/\s+/);
+      if (parts.length >= 2) existingSources.add(parts[0]);
+    }
+  }
+
+  const articles13 = JSON.parse(fs.readFileSync(ARTICLES_JSON, 'utf8'));
+  for (const a of articles13) {
+    const src = `/articles/${a.slug}.html`;
+    if (!existingSources.has(src)) {
+      missing.push(`${src} /articles/${a.slug} 200`);
+    }
+  }
+
+  const calcs13 = JSON.parse(fs.readFileSync(CALCULATORS_JSON, 'utf8'));
+  for (const c of calcs13) {
+    const src = `/${c.slug}.html`;
+    if (!existingSources.has(src)) {
+      missing.push(`${src} /${c.slug} 200`);
+    }
+  }
+
+  if (missing.length > 0) {
+    pass = false;
+    for (const rule of missing) {
+      failures.push(`[FAIL] Check 13: Missing .html rewrite in src/static/_redirects — add: ${rule}`);
+    }
+  }
+
+  if (pass) {
+    const total = articles13.length + calcs13.length;
+    console.log(`✅ Check 13: All ${total} article and calculator pages have .html rewrite rules`);
+  }
 }
 
 // ─── Summary ─────────────────────────────────────────────────────────────────

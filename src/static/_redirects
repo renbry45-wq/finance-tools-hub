@@ -7,7 +7,33 @@
 # Use 200 rewrites instead: /path /path.html 200
 # ─────────────────────────────────────────────────────────────
 
-/tax-residency-checker /tax-residency-checker.html 200
+# Index page rewrite — Cloudflare serves /calculators/ not /calculators/index.html
 /calculators/index.html /calculators/ 200
+
+# ─── Article .html rewrites (Check 13) ───────────────────────────────────────
+/articles/compare-job-offers-take-home-pay.html /articles/compare-job-offers-take-home-pay 200
+/articles/freelancer-tax-reserve-2026.html /articles/freelancer-tax-reserve-2026 200
+/articles/is-moving-abroad-cheaper.html /articles/is-moving-abroad-cheaper 200
+/articles/relocation-break-even-guide.html /articles/relocation-break-even-guide 200
+/articles/183-day-rule-remote-workers.html /articles/183-day-rule-remote-workers 200
 /articles/self-employment-tax-breakdown.html /articles/self-employment-tax-breakdown 200
 /articles/take-home-pay-by-state.html /articles/take-home-pay-by-state 200
+/articles/can-i-afford-to-go-freelance.html /articles/can-i-afford-to-go-freelance 200
+/articles/how-to-overpay-mortgage-freelance-income.html /articles/how-to-overpay-mortgage-freelance-income 200
+/articles/how-to-use-edgar-to-research-any-company.html /articles/how-to-use-edgar-to-research-any-company 200
+/articles/freelancer-tax-checklist-quarterly.html /articles/freelancer-tax-checklist-quarterly 200
+/articles/dollar-value-of-job-benefits.html /articles/dollar-value-of-job-benefits 200
+
+# ─── Calculator .html rewrites (Check 13) ────────────────────────────────────
+/take-home-pay-calculator.html /take-home-pay-calculator 200
+/mortgage-overpayment-calculator.html /mortgage-overpayment-calculator 200
+/credit-card-payoff-calculator.html /credit-card-payoff-calculator 200
+/tax-bracket-calculator.html /tax-bracket-calculator 200
+/retirement-savings-calculator.html /retirement-savings-calculator 200
+/gig-tax-optimizer.html /gig-tax-optimizer 200
+/digital-nomad-calculator.html /digital-nomad-calculator 200
+/cost-of-living-comparison.html /cost-of-living-comparison 200
+/break-even-savings-calculator.html /break-even-savings-calculator 200
+/tax-residency-checker.html /tax-residency-checker 200
+/nomad-health-insurance-estimator.html /nomad-health-insurance-estimator 200
+/savings-goal-calculator.html /savings-goal-calculator 200
