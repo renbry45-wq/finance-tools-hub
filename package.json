@@ -11,7 +11,7 @@
     "clean": "rm -rf dist",
     "seo:validate": "node scripts/seo-validate.cjs",
     "seo:check-html": "node scripts/seo-check-html.cjs",
-    "postinstall": "node -e \"const fs=require('fs');fs.writeFileSync('.git/hooks/pre-push','#!/bin/sh\\nnode scripts/seo-validate.cjs\\nif [ \\$? -ne 0 ]; then exit 1; fi\\nnode scripts/crawler-check.mjs\\nif [ \\$? -ne 0 ]; then exit 1; fi\\n');require('child_process').execSync('chmod +x .git/hooks/pre-push')\""
+    "postinstall": "node -e \"const fs=require('fs');if(!fs.existsSync('.git/hooks')){process.exit(0)}fs.writeFileSync('.git/hooks/pre-push','#!/bin/sh\\nnode scripts/seo-validate.cjs\\nif [ \\$? -ne 0 ]; then exit 1; fi\\nnode scripts/crawler-check.mjs\\nif [ \\$? -ne 0 ]; then exit 1; fi\\n');require('child_process').execSync('chmod +x .git/hooks/pre-push')\""
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5"

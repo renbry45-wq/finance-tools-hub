@@ -257,6 +257,16 @@ confirm the executing hook is current and invokes the new check. Same
 principle for validators: a script that exists but isn't in the gate
 protects nothing.
 
+### Rule 11 — postinstall must be environment-safe
+Build containers (Cloudflare Pages, Railway, Render, CI) have no `.git`
+directory. Any postinstall that writes to `.git/hooks/` will fail with a
+fatal error and abort `npm ci`, breaking every deploy. Guard it:
+- Shell cp pattern: `[ -d .git/hooks ] && cp ... && chmod +x ... || exit 0`
+- Node inline pattern: `if(!fs.existsSync('.git/hooks')){process.exit(0)}`
+Must exit 0 (not 1) in container environments. The hook is irrelevant
+there — the gate only matters for developer workstations.
+FTH's postinstall was updated 2026-07-13 to include this guard.
+
 ## Site structure (as of Jun 25 2026)
 - 12 calculators
 - 11 articles
