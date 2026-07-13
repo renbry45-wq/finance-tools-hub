@@ -190,6 +190,73 @@ relatedCalculatorKeys, tags, articleKeywords, faqs, body
 - Build environment: Node 22, npm ci (requires lock file in sync)
 - Auto-deploys on push to main branch
 
+## SEO/GEO Guardrails (2026-07-12 — never remove)
+
+Rules from the July 12 portfolio-wide SEO/GEO remediation. Apply to every
+repo in this portfolio. Never delete or weaken these rules.
+
+### Rule 1 — Multi-UA crawler verification
+Never gate SSR behind a bot-UA allowlist — render for all UAs. Any
+SEO/SSR/routing change must be curl-tested with plain Mozilla, Googlebot,
+GPTBot, ClaudeBot, PerplexityBot, and OAI-SearchBot.
+PASS = all UAs return 200 AND visible body text varies <10% across UAs
+AND content pages return ≥1,000 chars.
+`scripts/crawler-check.mjs` automates this check.
+
+### Rule 2 — Crawler-access check (three layers)
+Blocks can live in Cloudflare's managed rules, the repo robots.txt, AND
+app middleware — independently. Verify the LIVE robots.txt (not the repo
+file; Cloudflare can mask it) has no Disallow for:
+GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User,
+PerplexityBot, Google-Extended.
+AI crawlers are never "scrapers" — SEO-tool blocks (Ahrefs, Semrush, MJ12)
+stay; retrieval bots don't. `crawler-check.mjs` checks the live file.
+
+### Rule 3 — Money pages are SEO pages
+Homepage, pricing, /audit, /search, signup landing pages must pass the same
+SSR + schema + multi-UA checks as articles. No revenue-earning page may be
+a CSR shell.
+
+### Rule 4 — Redirect verification
+Any redirect created or modified: curl -sI both variants (www/apex,
+http/https) and assert the Location header is a valid absolute https URL
+resolving to 200. (A one-character typo — ttps:// — silently killed FTH's
+www variant. Check 11 now enforces redirect rules in _redirects.)
+
+### Rule 5 — Sitemap integrity
+Never hardcode exclusion lists. The sitemap builder must derive exclusions
+from the same source of truth the 410/redirect handler uses. Every sitemap
+URL must return 200 (429 = pass, rate limit ≠ dead).
+
+### Rule 6 — Traffic-collapse = P0
+Any GSC/Bing impressions drop >30% week-over-week gets diagnosed within
+72h, before any feature work. Never Backlog.
+
+### Rule 7 — EEAT baseline
+/about must exist (200) with a real author identity and Person JSON-LD.
+Article pages need Article schema + author + dateModified. Author is a
+named person, never an organization wearing a Person type ("Editorial Team"
+as a Person is schema misuse).
+
+### Rule 8 — Siloed author (standing owner rule)
+No sameAs to personal social profiles. No cross-links between portfolio
+sites. Named author per site, no external profile links. Do not re-ask
+for LinkedIn/social URLs.
+
+### Rule 9 — Deploy verification before polling
+This is a Cloudflare Pages site — there is no Railway deploy hash to check.
+Confirm the Cloudflare Pages deploy is green in the dashboard BEFORE
+polling. When verifying with curl, use a Googlebot or AI-bot UA — plain
+curl may be Cloudflare-challenged. All polling loops hard-timeout at 10
+minutes.
+
+### Rule 10 — A gate that isn't wired is decoration
+After adding any pre-push check, verify it actually runs on a real push.
+`.git/hooks/pre-push` may be a stale copy installed at postinstall —
+confirm the executing hook is current and invokes the new check. Same
+principle for validators: a script that exists but isn't in the gate
+protects nothing.
+
 ## Site structure (as of Jun 25 2026)
 - 12 calculators
 - 11 articles
